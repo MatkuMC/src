@@ -5,8 +5,7 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import DataObjects.Players;
-import DataObjects.Teams;
+import DataObjects.*;
 
 
 public class FileReader {
@@ -15,6 +14,7 @@ public class FileReader {
 	
 	private ArrayList<Teams> TeamsTable = new ArrayList<Teams>();
 	private ArrayList<Players> PlayersTable = new ArrayList<Players>();
+	private ArrayList<Matches> MatchesTable = new ArrayList<Matches>();
 	
 
 	public ArrayList<String> getHeaders() {
@@ -39,6 +39,14 @@ public class FileReader {
 
 	public void setPlayersTable(ArrayList<Players> playersTable) {
 		PlayersTable = playersTable;
+	}
+
+	public ArrayList<Matches> getMatchesTable() {
+		return MatchesTable;
+	}
+
+	public void setMatchesTable(ArrayList<Matches> matchesTable) {
+		MatchesTable = matchesTable;
 	}
 
 	public enum ReadType {
@@ -84,13 +92,14 @@ public class FileReader {
 				// TODO - Could speed up by reading the two in the same pass..
 				if(rt == ReadType.Team) dataObj.addTeamData(strLine);
 				if(rt == ReadType.Player) dataObj.addPlayersData(strLine, getTeamsTable());
-				if(rt == ReadType.Matches) dataObj.addMatchesData(strLine, getPlayersTable());
+				if(rt == ReadType.Matches) dataObj.addMatchesData(strLine, getTeamsTable());
 			}
 			
 			in.close();
 			
 			if(rt == ReadType.Team) setTeamsTable(dataObj.getTeamsTable());
 			if(rt == ReadType.Player) setPlayersTable(dataObj.getPlayersTable());
+			if(rt == ReadType.Matches) setMatchesTable(dataObj.getMatchesTable());
 			
 		}catch (Exception e) {
 			// TODO Auto-generated catch block

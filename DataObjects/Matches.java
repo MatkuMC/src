@@ -7,6 +7,9 @@ public class Matches {
 	private int TeamID1;
 	private int TeamID2;
 	private String Venue;
+	
+	public final String TableHeaders = "MatchID,Date,TeamID1,TeamID2,Venue";
+	
 	public int getMatchID() {
 		return MatchID;
 	}
@@ -49,15 +52,14 @@ public class Matches {
 		      return false;
 		   }
 		   
-		   if (this.Date != ((Matches) other).Date)
-		   {
+		   if(this.Date.compareTo(((Matches) other).Date) != 0){
+			   return false;
+		   } else if ((this.TeamID1 != ((Matches) other).TeamID1) && (this.TeamID1 != ((Matches) other).TeamID2)) {
+			   return false;
+		   } else if ((this.TeamID2 != ((Matches) other).TeamID2) && (this.TeamID2 != ((Matches) other).TeamID1)){
 			   return false;
 		   }
-		   
-		   if((this.Date != ((Matches) other).Date) && (this.TeamID1 != ((Matches) other).TeamID1) && (this.TeamID2 != ((Matches) other).TeamID2)){
-			   return false;
-		   }
-		   
+		     
 		return true;
 		
 	}

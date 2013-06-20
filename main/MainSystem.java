@@ -28,6 +28,8 @@ public class MainSystem {
 		
 		fileObj.readDataFile(DataFileLocation, ReadType.Player);
 		
+		fileObj.readDataFile(DataFileLocation, ReadType.Matches);
+		
 		//Create the Insert SQL from ArrayList
 		Query queryObj = new Query(dbName);
 			
@@ -40,19 +42,19 @@ public class MainSystem {
 			//Insert Players
 			dbObj.RunSQLInsert(queryObj.getPlayerInsertSQL(fileObj.getPlayersTable()));
 			
+			//Insert Matches
+			dbObj.RunSQLInsert(queryObj.getMatchesInsertSQL(fileObj.getMatchesTable()));
+			
 		}
 		
 		/*String sqlInsert = "";
 		
-		sqlInsert = queryObj.getPlayerInsertSQL(fileObj.getPlayersTable());
+		sqlInsert = queryObj.getMatchesInsertSQL(fileObj.getMatchesTable());
 		
 		System.out.println(sqlInsert);*/
 		
-		//dbObj.RunSQLSelectQuery("Select * from Players");
-		
+		//dbObj.RunSQLSelectQuery("Select * from Matches");	
 
 	}
-
 	
-
 }

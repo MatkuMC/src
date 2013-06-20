@@ -25,4 +25,27 @@ public class PlayerMatches {
 		PlayerID = playerID;
 	}
 
+	public boolean equals(Object other){
+		if (other == null)
+		   {
+		      return false;
+		   }
+
+		   if (this.getClass() != other.getClass())
+		   {
+		      return false;
+		   }
+		   
+		   //TODO - Check that this logic makes sense...
+		   if (this.MatchID != ((PlayerMatches) other).MatchID)
+		   {
+			   return false;
+		   } else if(this.PlayerID != ((PlayerMatches) other).PlayerID){
+			   
+			   return false;
+		   }
+		   
+		return true;
+		
+	}
 }

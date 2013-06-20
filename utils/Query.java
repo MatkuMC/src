@@ -69,5 +69,24 @@ public class Query {
 		return InsertSQL;
 		
 	}
+	
+	public String getMatchesInsertSQL(ArrayList<Matches> MatchesTable){
+		
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`Matches` (" + getColumnNames(MatchesTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (Matches match : MatchesTable){
+			Values = Values + "(" + "'" + match.getMatchID() + "'," + "'" + match.getDate() + "'" + ",'" + match.getTeamID1() + "'," 
+								+ "'" + match.getTeamID2() + "'," + "'" + match.getVenue() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+		
+	}
 
 }
