@@ -113,4 +113,38 @@ public class DBConnector {
 		
 	}
 
+	public String executeSQLStoredProcedure(String spName, int p1, int p2, int resultColumnIndex) {
+		Connection con = null;
+	    CallableStatement st = null;
+	    ResultSet rs = null;
+	   
+	    String result = "";
+	    
+	      try {
+	    	  con = DriverManager.getConnection(getConnectionString());
+	          st = con.prepareCall(spName);
+
+	          st.setInt(1, p1);
+	          st.setInt(2, p2);
+	          
+	          boolean hadResults = st.execute();
+	          
+	          while (hadResults) {
+	              rs = st.getResultSet();
+	              
+	              while(rs.next())
+	              {
+	            	  result = rs.getString(resultColumnIndex);
+	              }
+
+	              hadResults = st.getMoreResults();
+	          }
+	          
+	      } catch (Exception e) {
+		         System.out.println(e);
+		  }
+	      
+	      return result;
+	}
+
 }

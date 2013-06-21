@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import DataObjects.*;
 
 
-public class Data {
+public class KeyData {
 	
 	private ArrayList<Teams> TeamsTable = new ArrayList<Teams>();
 	private ArrayList<Players> PlayersTable = new ArrayList<Players>();
@@ -84,7 +84,7 @@ public class Data {
 		Team, Player, Matches, PlayerMatches;
 	}
 	
-	public Data(){
+	public KeyData(){
 		setCounterTeamID(100);
 		setCounterPlayerID(1000);
 		setCounterMatchID(10000);
@@ -112,7 +112,7 @@ public class Data {
 		return TeamID;
 	}
 	
-	private int getPlayerIDfromOptaID(int optaPlayerID, ArrayList<Players> PlayersTable) {
+	protected int getPlayerIDfromOptaID(int optaPlayerID, ArrayList<Players> PlayersTable) {
 		int PlayerID = 0;
 		
 		for(Players player : PlayersTable){
@@ -126,7 +126,7 @@ public class Data {
 		return PlayerID;
 	}
 	
-	private int getMatchIDfromObj(Matches matchObj, ArrayList<Matches> MatchesTable){
+	protected int getMatchIDfromObj(Matches matchObj, ArrayList<Matches> MatchesTable){
 		int MatchID = 0;
 		
 		for(Matches match : MatchesTable){

@@ -1,4 +1,6 @@
 package main;
+
+
 import utils.DBConnector;
 import utils.FileReader;
 import utils.FileReader.ReadType;
@@ -24,6 +26,7 @@ public class MainSystem {
 		
 		fileObj.readHeaderFile(HeaderFileLocation);
 		
+		//Read in Key Tables
 		fileObj.readDataFile(DataFileLocation, ReadType.Team);
 		
 		fileObj.readDataFile(DataFileLocation, ReadType.Player);
@@ -35,28 +38,57 @@ public class MainSystem {
 			
 		DBConnector dbObj = new DBConnector(dbName,userName,password);
 		
+		// Insert the Key Tables
 		if(run) {
 			//Insert Teams
 			dbObj.RunSQLInsert(queryObj.getTeamInsertSQL(fileObj.getTeamsTable()));
 			
+			System.out.println("Completed Insert of Teams Table...");
+			
 			//Insert Players
 			dbObj.RunSQLInsert(queryObj.getPlayerInsertSQL(fileObj.getPlayersTable()));
+			
+			System.out.println("Completed Insert of Players Table...");
 			
 			//Insert Matches
 			dbObj.RunSQLInsert(queryObj.getMatchesInsertSQL(fileObj.getMatchesTable()));
 			
+			System.out.println("Completed Insert of Matches Table...");
+			
 			//Insert PlayerMatches
 			dbObj.RunSQLInsert(queryObj.getPlayerMatchesInsertSQL(fileObj.getPlayerMatchesTable()));
 			
+			System.out.println("Completed Insert of PlayerMatches Table...");
 		}
 		
-		/*String sqlInsert = "";
+		// Read in Data Tables...
+		fileObj.readDataTables(DataFileLocation);
 		
-		sqlInsert = queryObj.getPlayerMatchesInsertSQL(fileObj.getPlayerMatchesTable());
+		if(run){
+			//Insert Penalties Table
+			dbObj.RunSQLInsert(queryObj.getPenaltiesInsertSQL(fileObj.getPenaltiesTable()));
 		
-		System.out.println(sqlInsert);*/
+			System.out.println("Completed Insert of Penalties Table...");
+			
+			//Insert DFKicks Table
+			dbObj.RunSQLInsert(queryObj.getDFKicksInsertSQL(fileObj.getDFKicksTable()));
+			
+			System.out.println("Completed Insert of Direct Free Kicks Table...");
+		}
 		
+		/*
+		String sqlInsert = "";
+		
+		sqlInsert = queryObj.getDFKicksInsertSQL(fileObj.getDFKicksTable());
+		
+		System.out.println(sqlInsert);
+		*/
 		//dbObj.RunSQLSelectQuery("Select * from Teams");	
+		
+		//String rs = dbObj.executeSQLStoredProcedure("{call prcGetKey(?, ?)}", 10006, 1001, 1);
+		
+		//System.out.println(rs);
+		
 
 	}
 	

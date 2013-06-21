@@ -33,6 +33,7 @@ public class Query {
 		
 		return colNames;
 	}
+	
 	public String getTeamInsertSQL(ArrayList<Teams> TeamsTable){
 		
 		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`Teams` (" + getColumnNames(TeamsTable.get(0).TableHeaders) + ")";
@@ -97,6 +98,41 @@ public class Query {
 		
 		for (PlayerMatches playermatch : PlayerMatchesTable){
 			Values = Values + "(" + "'" + playermatch.getID() + "'," + "'" + playermatch.getMatchID() + "'" + ",'" + playermatch.getPlayerID() + "')" + ",";
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+		
+	}
+
+	public String getPenaltiesInsertSQL(ArrayList<Penalties> PenaltiesTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`Penalties` (" + getColumnNames(PenaltiesTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (Penalties penalty : PenaltiesTable){
+			Values = Values + "(" + "'" + penalty.getID() + "','" + penalty.getTaken() + "','" + penalty.getGoals() + "','" 
+								 + penalty.getSaved() + "','" + penalty.getOffTarget() + "','" + penalty.getNotScored() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+
+	public String getDFKicksInsertSQL(ArrayList<DirectFreeKicks> DFKicksTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`DirectFreeKicks` (" + getColumnNames(DFKicksTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (DirectFreeKicks dfkick : DFKicksTable){
+			Values = Values + "(" + "'" + dfkick.getID() + "','" + dfkick.getGoals() + "','" + dfkick.getOnTarget() + "','" + dfkick.getOffTarget() 
+					+ "','" + dfkick.getBlocked() + "')" + ",";	
 		}
 		
 		Values = Values.substring(0, Values.length() - 1);

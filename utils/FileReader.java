@@ -12,12 +12,16 @@ public class FileReader {
 	
 	private ArrayList<String> Headers = new ArrayList<String>();
 	
+	// Key Tables
 	private ArrayList<Teams> TeamsTable = new ArrayList<Teams>();
 	private ArrayList<Players> PlayersTable = new ArrayList<Players>();
 	private ArrayList<Matches> MatchesTable = new ArrayList<Matches>();
 	private ArrayList<PlayerMatches> PlayerMatchesTable = new ArrayList<PlayerMatches>();
 	
-
+	//Data Tables
+	private ArrayList<Penalties> PenaltiesTable = new ArrayList<Penalties>();
+	private ArrayList<DirectFreeKicks> DFKicksTable = new ArrayList<DirectFreeKicks>();
+	
 	public ArrayList<String> getHeaders() {
 		return Headers;
 	}
@@ -58,6 +62,22 @@ public class FileReader {
 		PlayerMatchesTable = playerMatchesTable;
 	}
 
+	public ArrayList<Penalties> getPenaltiesTable() {
+		return PenaltiesTable;
+	}
+
+	public void setPenaltiesTable(ArrayList<Penalties> penaltiesTable) {
+		PenaltiesTable = penaltiesTable;
+	}
+
+	public ArrayList<DirectFreeKicks> getDFKicksTable() {
+		return DFKicksTable;
+	}
+
+	public void setDFKicksTable(ArrayList<DirectFreeKicks> dFKicksTable) {
+		DFKicksTable = dFKicksTable;
+	}
+
 	public enum ReadType {
 		Team, Player, Matches;
 	}
@@ -91,7 +111,7 @@ public class FileReader {
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
 			String strLine;
 			
-			Data dataObj = new Data();
+			KeyData dataObj = new KeyData();
 			
 			//Read the first line in as this is the headers line...
 			br.readLine();
@@ -117,6 +137,40 @@ public class FileReader {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+	}
+
+	
+	public void readDataTables(String fileLocation) {
+		
+		try {
+			FileInputStream fstream = new FileInputStream(fileLocation);
+			DataInputStream in = new DataInputStream(fstream);
+			BufferedReader br = new BufferedReader(new InputStreamReader(in));
+			String strLine;
+			
+			//Do not read the header line.
+			br.readLine();
+			
+			ActualData dataObj = new ActualData();
+			
+			while ((strLine = br.readLine()) != null) {
+				int key = dataObj.getKey(getMatchesTable(), getPlayersTable(), getTeamsTable(), strLine);
+				
+				dataObj.populatePenaltiesTable(key, strLine.trim());
+				dataObj.populateDFKicksTable(key, strLine.trim());
+			}
+			
+			in.close();
+			
+			setPenaltiesTable(dataObj.getPenaltiesTable());
+			setDFKicksTable(dataObj.getDFKicksTable());
+			
+		}catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 	}
 
