@@ -6,6 +6,8 @@ public class PlayerMatches {
 	private int MatchID;
 	private int PlayerID;
 	
+	public final String TableHeaders = "ID,MatchID,PlayerID";
+	
 	public int getID() {
 		return ID;
 	}

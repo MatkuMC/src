@@ -45,15 +45,18 @@ public class MainSystem {
 			//Insert Matches
 			dbObj.RunSQLInsert(queryObj.getMatchesInsertSQL(fileObj.getMatchesTable()));
 			
+			//Insert PlayerMatches
+			dbObj.RunSQLInsert(queryObj.getPlayerMatchesInsertSQL(fileObj.getPlayerMatchesTable()));
+			
 		}
 		
 		/*String sqlInsert = "";
 		
-		sqlInsert = queryObj.getMatchesInsertSQL(fileObj.getMatchesTable());
+		sqlInsert = queryObj.getPlayerMatchesInsertSQL(fileObj.getPlayerMatchesTable());
 		
 		System.out.println(sqlInsert);*/
 		
-		//dbObj.RunSQLSelectQuery("Select * from Matches");	
+		//dbObj.RunSQLSelectQuery("Select * from Teams");	
 
 	}
 	

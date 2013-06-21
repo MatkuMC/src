@@ -88,12 +88,14 @@ public class Data {
 		setCounterTeamID(100);
 		setCounterPlayerID(1000);
 		setCounterMatchID(10000);
+		setCounterPlayerMatchesID(2000);
 	}
 
 	public void incrementCounter(CounterType ct){
 		if(ct == CounterType.Team) setCounterTeamID(getCounterTeamID() + 1);
 		if(ct == CounterType.Player) setCounterPlayerID(getCounterPlayerID() + 1);
 		if(ct == CounterType.Matches) setCounterMatchID(getCounterMatchID() + 1);
+		if(ct == CounterType.PlayerMatches) setCounterPlayerMatchesID(getCounterPlayerMatchesID() + 1);
 	}
 	
 	public int getTeamIDfromOptaID(int optaTeamID, ArrayList<Teams> TeamsTable){
@@ -108,6 +110,40 @@ public class Data {
 		}
 		
 		return TeamID;
+	}
+	
+	private int getPlayerIDfromOptaID(int optaPlayerID, ArrayList<Players> PlayersTable) {
+		int PlayerID = 0;
+		
+		for(Players player : PlayersTable){
+			if(player.getOptaPlayerID() == optaPlayerID) 
+				{
+					PlayerID = player.getPlayerID();
+					break;
+				}	
+		}
+		
+		return PlayerID;
+	}
+	
+	private int getMatchIDfromObj(Matches matchObj, ArrayList<Matches> MatchesTable){
+		int MatchID = 0;
+		
+		for(Matches match : MatchesTable){
+			//Check that the dates are equal..
+			if((match.getDate().compareTo(matchObj.getDate()) == 0)) {
+				//If the dates are equal check that Team1 == Team1 and Team2 == Team2... or if Team1 == Team2 and Team2 = Team1
+				if((match.getTeamID1() == matchObj.getTeamID1()) && (match.getTeamID2() == matchObj.getTeamID2())){
+					MatchID = match.getMatchID();
+					break;
+				} else  if ((match.getTeamID1() == matchObj.getTeamID2()) && (match.getTeamID2() == matchObj.getTeamID1())){
+					MatchID = match.getMatchID();
+					break;
+				}
+			}
+		}
+		
+		return MatchID;
 	}
 	
 	public void addTeamData(String dataLine){
@@ -165,19 +201,26 @@ public class Data {
 		
 	}
 
-	public void addMatchesData(String dataLine, ArrayList<Teams> TeamsTable) throws IdNotFoundException  {
+	public void addMatchesData(String dataLine, ArrayList<Teams> TeamsTable, ArrayList<Players> PlayersTable) throws IdNotFoundException  {
 		ArrayList<Matches> tempMatchesTable = new ArrayList<Matches>();
 		
+		ArrayList<PlayerMatches> tempPMtable = new ArrayList<PlayerMatches>();
+		
 		tempMatchesTable = getMatchesTable();
+		tempPMtable = getPlayerMatchesTable();
 		
 		String [] data = dataLine.split(",");
 		
 		Matches tempObj = new Matches();
 		
+		PlayerMatches tempPMObj = new PlayerMatches();
+		
 		tempObj.setDate(data[0]); // Date
 		
 		int TeamID1 = getTeamIDfromOptaID(Integer.parseInt(data[5]), TeamsTable); // Team ID
 		int TeamID2 = getTeamIDfromOptaID(Integer.parseInt(data[7]), TeamsTable); // Opposition ID	
+		
+		int PlayerID = getPlayerIDfromOptaID(Integer.parseInt(data[1]), PlayersTable);
 		
 		if((TeamID1 == 0) || (TeamID2 == 0)) {
 			throw new IdNotFoundException("addMatchesData: Could not find TeamID");
@@ -186,15 +229,45 @@ public class Data {
 			tempObj.setTeamID2(TeamID2);
 		}
 		
+		if(PlayerID == 0){
+			throw new IdNotFoundException("addMatchesData: Could not find PlayerID");
+		} else {
+			tempPMObj.setPlayerID(PlayerID);
+		}
+		
 		tempObj.setVenue(data[8]); // Venue
+		
 		
 		if(!tempMatchesTable.contains(tempObj)) {
 			tempObj.setMatchID(getCounterMatchID());
+			tempPMObj.setMatchID(getCounterMatchID());
+			
+			tempPMObj.setID(getCounterPlayerMatchesID());
+			
+			incrementCounter(CounterType.PlayerMatches);
 			incrementCounter(CounterType.Matches);
+			
 			tempMatchesTable.add(tempObj);
+			tempPMtable.add(tempPMObj);
+		} else {
+			// Add the Player and previous MatchID.
+			int MatchID = getMatchIDfromObj(tempObj, tempMatchesTable);
+			
+			if(MatchID == 0) {
+				throw new  IdNotFoundException("addMatchesData: Could not find MatchID");
+			}else {
+				tempPMObj.setMatchID(MatchID);
+				
+				tempPMObj.setID(getCounterPlayerMatchesID());
+				
+				incrementCounter(CounterType.PlayerMatches);
+				tempPMtable.add(tempPMObj);
+			}
+			
 		}
 		
 		setMatchesTable(tempMatchesTable);
+		setPlayerMatchesTable(tempPMtable);
 		
 	}
 

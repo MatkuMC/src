@@ -88,5 +88,23 @@ public class Query {
 		return InsertSQL;
 		
 	}
+	
+	public String getPlayerMatchesInsertSQL(ArrayList<PlayerMatches> PlayerMatchesTable){
+		
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`PlayerMatches` (" + getColumnNames(PlayerMatchesTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (PlayerMatches playermatch : PlayerMatchesTable){
+			Values = Values + "(" + "'" + playermatch.getID() + "'," + "'" + playermatch.getMatchID() + "'" + ",'" + playermatch.getPlayerID() + "')" + ",";
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+		
+	}
 
 }
