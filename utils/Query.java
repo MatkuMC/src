@@ -143,4 +143,163 @@ public class Query {
 		
 	}
 
+	public String getInsideBoxInsertSQL(ArrayList<InsideBox> InsideBoxTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`InsideBox` (" + getColumnNames(InsideBoxTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (InsideBox ibox : InsideBoxTable){
+			Values = Values + "(" + "'" + ibox.getID() + "','" + ibox.getGoals() + "','" + ibox.getShotsOn() + "','" + ibox.getShotsOff() 
+					+ "','" + ibox.getBlocked() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+		
+	}
+	
+	public String getOutsideBoxInsertSQL(ArrayList<OutsideBox> OutsideBoxTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`OutsideBox` (" + getColumnNames(OutsideBoxTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (OutsideBox obox : OutsideBoxTable){
+			Values = Values + "(" + "'" + obox.getID() + "','" + obox.getGoals() + "','" + obox.getShotsOn() + "','" + obox.getShotsOff() 
+					+ "','" + obox.getBlocked() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+		
+	}
+	
+	public String getHeadedInsertSQL(ArrayList<Headed> HeadedTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`Headed` (" + getColumnNames(HeadedTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (Headed head : HeadedTable){
+			Values = Values + "(" + "'" + head.getID() + "','" + head.getGoals() + "','" + head.getShotsOn() + "','" + head.getShotsOff() 
+					+ "','" + head.getBlocked() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+		
+	}
+	
+	public String getLeftFootInsertSQL(ArrayList<LeftFoot> LeftFootTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`LeftFoot` (" + getColumnNames(LeftFootTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (LeftFoot lf : LeftFootTable){
+			Values = Values + "(" + "'" + lf.getID() + "','" + lf.getGoals() + "','" + lf.getShotsOn() + "','" + lf.getShotsOff() 
+					+ "','" + lf.getBlocked() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+		
+	}
+	
+	public String getRightFootInsertSQL(ArrayList<RightFoot> RightFootTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`RightFoot` (" + getColumnNames(RightFootTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (RightFoot rf : RightFootTable){
+			Values = Values + "(" + "'" + rf.getID() + "','" + rf.getGoals() + "','" + rf.getShotsOn() + "','" + rf.getShotsOff() 
+					+ "','" + rf.getBlocked() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+		
+	}
+	
+	public String getOtherInsertSQL(ArrayList<Other> OtherTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`Other` (" + getColumnNames(OtherTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (Other oth : OtherTable){
+			Values = Values + "(" + "'" + oth.getID() + "','" + oth.getGoals() + "','" + oth.getShotsOn() + "','" + oth.getShotsOff() 
+					+ "','" + oth.getBlocked() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+		
+	}
+	
+	public String getShotsClearedInsertSQL(ArrayList<ShotsCleared> ShotsClearedTable){
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`ShotsCleared` (" + getColumnNames(ShotsClearedTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (ShotsCleared sc : ShotsClearedTable){
+			Values = Values + "(" + "'" + sc.getID() + "','" + sc.getOffLine() + "','" + sc.getOffLineInsideArea() 
+					+ "','" + sc.getOffLineOutsideArea() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+
+	public String getGoalsInsertSQL(ArrayList<Goals> GoalsTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`Goals` (" + getColumnNames(GoalsTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (Goals goal : GoalsTable){
+			Values = Values + "(" + "'" + goal.getID() + "','" + goal.getOpenPlay() + "','" + goal.getCorners()
+					+ "','" + goal.getThrows() + "','" + goal.getDFKicks() + "','" + goal.getSetPlay() + "','" + goal.getPenalties() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+	
+	public String getAttemptsOnTargetInsertSQL(ArrayList<AttemptsOnTarget> AttemptsOnTargetTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`AttemptsOnTarget` (" + getColumnNames(AttemptsOnTargetTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (AttemptsOnTarget aot : AttemptsOnTargetTable){
+			Values = Values + "(" + "'" + aot.getID() + "','" + aot.getOpenPlay() + "','" + aot.getCorners()
+					+ "','" + aot.getThrows() + "','" + aot.getDFKicks() + "','" + aot.getSetPlay() + "','" + aot.getPenalties() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+
 }

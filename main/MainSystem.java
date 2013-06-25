@@ -74,15 +74,34 @@ public class MainSystem {
 			dbObj.RunSQLInsert(queryObj.getDFKicksInsertSQL(fileObj.getDFKicksTable()));
 			
 			System.out.println("Completed Insert of Direct Free Kicks Table...");
+			
+			//Insert InsideBox Table
+			
+			//Insert OutSideBox Table
+			
+			//Insert Headed Table
+			
+			//Insert LeftFoot Table
+			
+			//Insert RightFoot Table
+			
+			//Insert Other Table
+			
+			//Insert ShotsCleared Table
+			
+			//Insert Goals Table
+			
+			//Insert AttemptsOnTarget Table
 		}
 		
-		/*
+		
+		
 		String sqlInsert = "";
 		
-		sqlInsert = queryObj.getDFKicksInsertSQL(fileObj.getDFKicksTable());
+		sqlInsert = queryObj.getAttemptsOnTargetInsertSQL(fileObj.getAttemptsOnTargetTable());
 		
 		System.out.println(sqlInsert);
-		*/
+		
 		//dbObj.RunSQLSelectQuery("Select * from Teams");	
 		
 		//String rs = dbObj.executeSQLStoredProcedure("{call prcGetKey(?, ?)}", 10006, 1001, 1);

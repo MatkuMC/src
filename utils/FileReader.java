@@ -21,6 +21,15 @@ public class FileReader {
 	//Data Tables
 	private ArrayList<Penalties> PenaltiesTable = new ArrayList<Penalties>();
 	private ArrayList<DirectFreeKicks> DFKicksTable = new ArrayList<DirectFreeKicks>();
+	private ArrayList<InsideBox> InsideBoxTable = new ArrayList<InsideBox>();
+	private ArrayList<OutsideBox> OutsideBoxTable = new ArrayList<OutsideBox>();
+	private ArrayList<Headed> HeadedTable = new ArrayList<Headed>();
+	private ArrayList<LeftFoot> LeftFootTable = new ArrayList<LeftFoot>();
+	private ArrayList<RightFoot> RightFootTable = new ArrayList<RightFoot>();
+	private ArrayList<Other> OtherTable = new ArrayList<Other>();
+	private ArrayList<ShotsCleared> ShotsClearedTable = new ArrayList<ShotsCleared>();
+	private ArrayList<Goals> GoalsTable = new ArrayList<Goals>();
+	private ArrayList<AttemptsOnTarget> AttemptsOnTargetTable = new ArrayList<AttemptsOnTarget>();
 	
 	public ArrayList<String> getHeaders() {
 		return Headers;
@@ -76,6 +85,78 @@ public class FileReader {
 
 	public void setDFKicksTable(ArrayList<DirectFreeKicks> dFKicksTable) {
 		DFKicksTable = dFKicksTable;
+	}
+
+	public ArrayList<InsideBox> getInsideBoxTable() {
+		return InsideBoxTable;
+	}
+
+	public void setInsideBoxTable(ArrayList<InsideBox> insideBoxTable) {
+		InsideBoxTable = insideBoxTable;
+	}
+
+	public ArrayList<OutsideBox> getOutsideBoxTable() {
+		return OutsideBoxTable;
+	}
+
+	public void setOutsideBoxTable(ArrayList<OutsideBox> outsideBoxTable) {
+		OutsideBoxTable = outsideBoxTable;
+	}
+
+	public ArrayList<Headed> getHeadedTable() {
+		return HeadedTable;
+	}
+
+	public void setHeadedTable(ArrayList<Headed> headedTable) {
+		HeadedTable = headedTable;
+	}
+
+	public ArrayList<LeftFoot> getLeftFootTable() {
+		return LeftFootTable;
+	}
+
+	public void setLeftFootTable(ArrayList<LeftFoot> leftFootTable) {
+		LeftFootTable = leftFootTable;
+	}
+
+	public ArrayList<RightFoot> getRightFootTable() {
+		return RightFootTable;
+	}
+
+	public void setRightFootTable(ArrayList<RightFoot> rightFootTable) {
+		RightFootTable = rightFootTable;
+	}
+
+	public ArrayList<Other> getOtherTable() {
+		return OtherTable;
+	}
+
+	public void setOtherTable(ArrayList<Other> otherTable) {
+		OtherTable = otherTable;
+	}
+
+	public ArrayList<ShotsCleared> getShotsClearedTable() {
+		return ShotsClearedTable;
+	}
+
+	public void setShotsClearedTable(ArrayList<ShotsCleared> shotsClearedTable) {
+		ShotsClearedTable = shotsClearedTable;
+	}
+
+	public ArrayList<Goals> getGoalsTable() {
+		return GoalsTable;
+	}
+
+	public void setGoalsTable(ArrayList<Goals> goalsTable) {
+		GoalsTable = goalsTable;
+	}
+
+	public ArrayList<AttemptsOnTarget> getAttemptsOnTargetTable() {
+		return AttemptsOnTargetTable;
+	}
+
+	public void setAttemptsOnTargetTable(ArrayList<AttemptsOnTarget> attemptsOnTargetTable) {
+		AttemptsOnTargetTable = attemptsOnTargetTable;
 	}
 
 	public enum ReadType {
@@ -159,12 +240,30 @@ public class FileReader {
 				
 				dataObj.populatePenaltiesTable(key, strLine.trim());
 				dataObj.populateDFKicksTable(key, strLine.trim());
+				dataObj.populateInsideBoxTable(key, strLine.trim());
+				dataObj.populateOutsideBoxTable(key, strLine.trim());
+				dataObj.populateHeadedTable(key,strLine.trim());
+				dataObj.populateLeftFootTable(key, strLine.trim());
+				dataObj.populateRightFootTable(key,strLine.trim());
+				dataObj.populateOtherTable(key, strLine.trim());
+				dataObj.populateShotsClearedTable(key, strLine.trim());
+				dataObj.populateGoalsTable(key, strLine.trim());
+				dataObj.populateAttemptsOnTargetTable(key, strLine.trim());
 			}
 			
 			in.close();
 			
 			setPenaltiesTable(dataObj.getPenaltiesTable());
 			setDFKicksTable(dataObj.getDFKicksTable());
+			setInsideBoxTable(dataObj.getInsideBoxTable());
+			setOutsideBoxTable(dataObj.getOutsideBoxTable());
+			setHeadedTable(dataObj.getHeadedTable());
+			setLeftFootTable(dataObj.getLeftFootTable());
+			setRightFootTable(dataObj.getRightFootTable());
+			setOtherTable(dataObj.getOtherTable());
+			setShotsClearedTable(dataObj.getShotsClearedTable());
+			setGoalsTable(dataObj.getGoalsTable());
+			setAttemptsOnTargetTable(dataObj.getAttemptsOnTargetTable());
 			
 		}catch (Exception e) {
 			// TODO Auto-generated catch block
