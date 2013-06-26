@@ -7,7 +7,7 @@ public class ShotsCleared {
 	private int OffLineInsideArea;
 	private int OffLineOutsideArea;
 	
-	public String TableHeaders = "ID,OffLine,OffLineInsideArea,OffLineOutsideAread";
+	public String TableHeaders = "ID,OffLine,OffLineInsideArea,OffLineOutsideArea";
 	
 	public int getID() {
 		return ID;

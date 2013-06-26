@@ -301,5 +301,122 @@ public class Query {
 		
 		return InsertSQL;
 	}
+	
+	public String getAttemptsOffTargetInsertSQL(ArrayList<AttemptsOffTarget> AttemptsOffTargetTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`AttemptsOffTarget` (" + getColumnNames(AttemptsOffTargetTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (AttemptsOffTarget aot : AttemptsOffTargetTable){
+			Values = Values + "(" + "'" + aot.getID() + "','" + aot.getOpenPlay() + "','" + aot.getCorners()
+					+ "','" + aot.getThrows() + "','" + aot.getDFKicks() + "','" + aot.getSetPlay() + "','" + aot.getPenalties() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+	
+	public String getSuccessfulPassesInsertSQL(ArrayList<SuccessfulPasses> SuccessfulPassesTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`SuccessfulPasses` (" + getColumnNames(SuccessfulPassesTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (SuccessfulPasses sp : SuccessfulPassesTable){
+			Values = Values + "(" + "'" + sp.getID() + "','" + sp.getTotal() + "','" + sp.getTECC()
+					+ "','" + sp.getOwnHalf() + "','" + sp.getOppHalf() + "','" + sp.getDefensiveThird() + "','" + sp.getMiddleThird()
+					+ "','" + sp.getFinalThird() + "','" + sp.getShortPasses() + "','" + sp.getLongPasses() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+	
+	public String getUnsuccessfulPassesInsertSQL(ArrayList<UnsuccessfulPasses> UnsuccessfulPassesTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`UnsuccessfulPasses` (" + getColumnNames(UnsuccessfulPassesTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (UnsuccessfulPasses usp : UnsuccessfulPassesTable){
+			Values = Values + "(" + "'" + usp.getID() + "','" + usp.getTotal() + "','" + usp.getTECC()
+					+ "','" + usp.getOwnHalf() + "','" + usp.getOppHalf() + "','" + usp.getDefensiveThird() + "','" + usp.getMiddleThird()
+					+ "','" + usp.getFinalThird() + "','" + usp.getShortPasses() + "','" + usp.getLongPasses() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+	
+	public String getFlickOnInsertSQL(ArrayList<FlickOn> FlickOnTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`FlickOn` (" + getColumnNames(FlickOnTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (FlickOn fo : FlickOnTable){
+			Values = Values + "(" + "'" + fo.getID() + "','" + fo.getSuccessful()+ "','" + fo.getUnsuccessful() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+	
+	public String getCrossesCornersInsertSQL(ArrayList<CrossesCorners> CrossesCornersTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`CrossesCorners` (" + getColumnNames(CrossesCornersTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (CrossesCorners cc : CrossesCornersTable){
+			Values = Values + "(" + "'" + cc.getID() + "','" + cc.getSuccessful()+ "','" + cc.getUnsuccessful() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+	
+	public String getCornersIntoBoxInsertSQL(ArrayList<CornersIntoBox> CornersIntoBoxTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`CornersIntoBox` (" + getColumnNames(CornersIntoBoxTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (CornersIntoBox cc : CornersIntoBoxTable){
+			Values = Values + "(" + "'" + cc.getID() + "','" + cc.getSuccessful()+ "','" + cc.getUnsuccessful() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+	
+	public String getThrowInInsertSQL(ArrayList<ThrowIn> ThrowInTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`ThrowIn` (" + getColumnNames(ThrowInTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (ThrowIn ti : ThrowInTable){
+			Values = Values + "(" + "'" + ti.getID() + "','" + ti.getOwnPlayer() + "','" + ti.getOppPlayer() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
 
 }

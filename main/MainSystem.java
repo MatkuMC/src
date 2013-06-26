@@ -76,37 +76,98 @@ public class MainSystem {
 			System.out.println("Completed Insert of Direct Free Kicks Table...");
 			
 			//Insert InsideBox Table
+			dbObj.RunSQLInsert(queryObj.getInsideBoxInsertSQL(fileObj.getInsideBoxTable()));
+			
+			System.out.println("Completed Insert of InsideBox Table...");
 			
 			//Insert OutSideBox Table
+			dbObj.RunSQLInsert(queryObj.getOutsideBoxInsertSQL(fileObj.getOutsideBoxTable()));
+			
+			System.out.println("Completed Insert of OutsideBox Table...");
 			
 			//Insert Headed Table
+			dbObj.RunSQLInsert(queryObj.getHeadedInsertSQL(fileObj.getHeadedTable()));
+			
+			System.out.println("Completed Insert of Headed Table...");
 			
 			//Insert LeftFoot Table
+			dbObj.RunSQLInsert(queryObj.getLeftFootInsertSQL(fileObj.getLeftFootTable()));
+			
+			System.out.println("Completed Insert of LeftFoot Table...");
 			
 			//Insert RightFoot Table
+			dbObj.RunSQLInsert(queryObj.getRightFootInsertSQL(fileObj.getRightFootTable()));
+			
+			System.out.println("Completed Insert of RightFoot Table...");
 			
 			//Insert Other Table
+			dbObj.RunSQLInsert(queryObj.getOtherInsertSQL(fileObj.getOtherTable()));
+			
+			System.out.println("Completed Insert of Other Table...");
 			
 			//Insert ShotsCleared Table
+			dbObj.RunSQLInsert(queryObj.getShotsClearedInsertSQL(fileObj.getShotsClearedTable()));
+			
+			System.out.println("Completed Insert of Shots Cleared Table...");
 			
 			//Insert Goals Table
+			dbObj.RunSQLInsert(queryObj.getGoalsInsertSQL(fileObj.getGoalsTable()));
+			
+			System.out.println("Completed Insert of Goals Table...");
 			
 			//Insert AttemptsOnTarget Table
+			dbObj.RunSQLInsert(queryObj.getAttemptsOnTargetInsertSQL(fileObj.getAttemptsOnTargetTable()));
+			
+			System.out.println("Completed Insert of Attempts On Target Table...");
+			
+			//Insert AttemptsOffTarget Table
+			dbObj.RunSQLInsert(queryObj.getAttemptsOffTargetInsertSQL(fileObj.getAttemptsOffTargetTable()));
+			
+			System.out.println("Completed Insert of Attempts Off Target Table...");
+			
+			//Insert SuccessfullPasses Table
+			dbObj.RunSQLInsert(queryObj.getSuccessfulPassesInsertSQL(fileObj.getSuccessfulPassesTable()));
+			
+			System.out.println("Completed Insert of Successful Passes Table...");
+			
+			//Insert UnsuccessfullPasses Table
+			dbObj.RunSQLInsert(queryObj.getUnsuccessfulPassesInsertSQL(fileObj.getUnsuccessfulPassesTable()));
+			
+			System.out.println("Completed Insert of Unsuccessful Passes Table...");
+			
+			//Insert FlickOn Table
+			dbObj.RunSQLInsert(queryObj.getFlickOnInsertSQL(fileObj.getFlickOnTable()));
+			
+			System.out.println("Completed Insert of FlickOn Table...");
+
+			//Insert Crosses Corners Table
+			dbObj.RunSQLInsert(queryObj.getCrossesCornersInsertSQL(fileObj.getCrossesCornersTable()));
+			
+			System.out.println("Completed Insert of Crosses Corners Table...");
+			
+			//Insert Corners Into Box Table
+			dbObj.RunSQLInsert(queryObj.getCornersIntoBoxInsertSQL(fileObj.getCornersIntoBoxTable()));
+			
+			System.out.println("Completed Insert of Corners Into Box Table...");
+			
+			//Insert Throw In Table
+			dbObj.RunSQLInsert(queryObj.getThrowInInsertSQL(fileObj.getThrowInTable()));
+			
+			System.out.println("Completed Insert of Throw In Table...");
+			
 		}
 		
+		/*String sqlInsert = "";
 		
+		sqlInsert = queryObj.getThrowInInsertSQL(fileObj.getThrowInTable());
 		
-		String sqlInsert = "";
+		System.out.println(sqlInsert);*/
 		
-		sqlInsert = queryObj.getAttemptsOnTargetInsertSQL(fileObj.getAttemptsOnTargetTable());
+		/*dbObj.RunSQLSelectQuery("Select * from Teams");	
 		
-		System.out.println(sqlInsert);
+		String rs = dbObj.executeSQLStoredProcedure("{call prcGetKey(?, ?)}", 10006, 1001, 1);
 		
-		//dbObj.RunSQLSelectQuery("Select * from Teams");	
-		
-		//String rs = dbObj.executeSQLStoredProcedure("{call prcGetKey(?, ?)}", 10006, 1001, 1);
-		
-		//System.out.println(rs);
+		System.out.println(rs);*/
 		
 
 	}

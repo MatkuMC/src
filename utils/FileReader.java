@@ -30,6 +30,13 @@ public class FileReader {
 	private ArrayList<ShotsCleared> ShotsClearedTable = new ArrayList<ShotsCleared>();
 	private ArrayList<Goals> GoalsTable = new ArrayList<Goals>();
 	private ArrayList<AttemptsOnTarget> AttemptsOnTargetTable = new ArrayList<AttemptsOnTarget>();
+	private ArrayList<AttemptsOffTarget> AttemptsOffTargetTable = new ArrayList<AttemptsOffTarget>();
+	private ArrayList<SuccessfulPasses> SuccessfulPassesTable = new ArrayList<SuccessfulPasses>();
+	private ArrayList<UnsuccessfulPasses> UnsuccessfulPassesTable = new ArrayList<UnsuccessfulPasses>();
+	private ArrayList<FlickOn> FlickOnTable = new ArrayList<FlickOn>();
+	private ArrayList<CrossesCorners> CrossesCornersTable = new ArrayList<CrossesCorners>();
+	private ArrayList<CornersIntoBox> CornersIntoBoxTable = new ArrayList<CornersIntoBox>();
+	private ArrayList<ThrowIn> ThrowInTable = new ArrayList<ThrowIn>();
 	
 	public ArrayList<String> getHeaders() {
 		return Headers;
@@ -159,6 +166,62 @@ public class FileReader {
 		AttemptsOnTargetTable = attemptsOnTargetTable;
 	}
 
+	public ArrayList<AttemptsOffTarget> getAttemptsOffTargetTable() {
+		return AttemptsOffTargetTable;
+	}
+
+	public void setAttemptsOffTargetTable(ArrayList<AttemptsOffTarget> attemptsOffTargetTable) {
+		AttemptsOffTargetTable = attemptsOffTargetTable;
+	}
+
+	public ArrayList<SuccessfulPasses> getSuccessfulPassesTable() {
+		return SuccessfulPassesTable;
+	}
+
+	public void setSuccessfulPassesTable(ArrayList<SuccessfulPasses> successFulPassesTable) {
+		SuccessfulPassesTable = successFulPassesTable;
+	}
+
+	public ArrayList<UnsuccessfulPasses> getUnsuccessfulPassesTable() {
+		return UnsuccessfulPassesTable;
+	}
+
+	public void setUnsuccessfulPassesTable(ArrayList<UnsuccessfulPasses> unsuccessfulPassesTable) {
+		UnsuccessfulPassesTable = unsuccessfulPassesTable;
+	}
+
+	public ArrayList<FlickOn> getFlickOnTable() {
+		return FlickOnTable;
+	}
+
+	public void setFlickOnTable(ArrayList<FlickOn> flickOnTable) {
+		FlickOnTable = flickOnTable;
+	}
+
+	public ArrayList<CrossesCorners> getCrossesCornersTable() {
+		return CrossesCornersTable;
+	}
+
+	public void setCrossesCornersTable(ArrayList<CrossesCorners> crossesCornersTable) {
+		CrossesCornersTable = crossesCornersTable;
+	}
+
+	public ArrayList<CornersIntoBox> getCornersIntoBoxTable() {
+		return CornersIntoBoxTable;
+	}
+
+	public void setCornersIntoBoxTable(ArrayList<CornersIntoBox> cornersIntoBoxTable) {
+		CornersIntoBoxTable = cornersIntoBoxTable;
+	}
+
+	public ArrayList<ThrowIn> getThrowInTable() {
+		return ThrowInTable;
+	}
+
+	public void setThrowInTable(ArrayList<ThrowIn> throwInTable) {
+		ThrowInTable = throwInTable;
+	}
+
 	public enum ReadType {
 		Team, Player, Matches;
 	}
@@ -249,6 +312,13 @@ public class FileReader {
 				dataObj.populateShotsClearedTable(key, strLine.trim());
 				dataObj.populateGoalsTable(key, strLine.trim());
 				dataObj.populateAttemptsOnTargetTable(key, strLine.trim());
+				dataObj.populateAttemptsOffTargetTable(key, strLine.trim());
+				dataObj.populateSuccessfulPassesTable(key, strLine.trim());
+				dataObj.populateUnsuccessfulPassesTable(key, strLine.trim());
+				dataObj.populateFlickOnTable(key, strLine.trim());
+				dataObj.populateCrossesCornersTable(key,strLine.trim());
+				dataObj.populateCornersIntoBoxTable(key,strLine.trim());
+				dataObj.populateThrowInTable(key, strLine.trim());
 			}
 			
 			in.close();
@@ -264,6 +334,13 @@ public class FileReader {
 			setShotsClearedTable(dataObj.getShotsClearedTable());
 			setGoalsTable(dataObj.getGoalsTable());
 			setAttemptsOnTargetTable(dataObj.getAttemptsOnTargetTable());
+			setAttemptsOffTargetTable(dataObj.getAttemptsOffTargetTable());
+			setSuccessfulPassesTable(dataObj.getSuccessfulPassesTable());
+			setUnsuccessfulPassesTable(dataObj.getUnsuccessfulPassesTable());
+			setFlickOnTable(dataObj.getFlickOnTable());
+			setCrossesCornersTable(dataObj.getCrossesCornersTable());
+			setCornersIntoBoxTable(dataObj.getCornersIntoBoxTable());
+			setThrowInTable(dataObj.getThrowInTable());
 			
 		}catch (Exception e) {
 			// TODO Auto-generated catch block
