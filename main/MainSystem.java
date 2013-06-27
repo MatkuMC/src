@@ -24,7 +24,7 @@ public class MainSystem {
 		
 		boolean run = false;
 		
-		fileObj.readHeaderFile(HeaderFileLocation);
+		//fileObj.readHeaderFile(HeaderFileLocation);
 		
 		//Read in Key Tables
 		fileObj.readDataFile(DataFileLocation, ReadType.Team);
@@ -155,27 +155,60 @@ public class MainSystem {
 			
 			System.out.println("Completed Insert of Throw In Table...");
 			
-			//Insert Dribbles Table
+			//Insert Dribbles Table..
+			dbObj.RunSQLInsert(queryObj.getDribblesTableInsertSQL(fileObj.getDribblesTable()));
+			
+			System.out.println("Completed Insert of Dribbles Table...");
 			
 			//Insert Crosses Corners Left Table
+			dbObj.RunSQLInsert(queryObj.getCrossesCornersLeftTableInsertSQL(fileObj.getCrossesCornersLeftTable()));
+			
+			System.out.println("Completed Insert of Crosses Corners Left Table...");
 			
 			//Insert Crosses Left Table
+			dbObj.RunSQLInsert(queryObj.getCrossesLeftTableInsertSQL(fileObj.getCrossesLeftTable()));
+			
+			System.out.println("Completed Insert of Crosses Left Table...");
 			
 			//Insert Corners Left Table
+			dbObj.RunSQLInsert(queryObj.getCornersLeftTableInsertSQL(fileObj.getCornersLeftTable()));
+			
+			System.out.println("Completed Insert of Corners Left Table...");
 			
 			//Insert Crosses Corners Right Table
+			dbObj.RunSQLInsert(queryObj.getCrossesCornersRightTableInsertSQL(fileObj.getCrossesCornersRightTable()));
+			
+			System.out.println("Completed Insert of Crosses Corners Right Table...");
 			
 			//Insert Crosses Right Table
+			dbObj.RunSQLInsert(queryObj.getCrossesRightTableInsertSQL(fileObj.getCrossesRightTable()));
+			
+			System.out.println("Completed Insert of Crosses Right Table...");
 			
 			//Insert Corners Right Table
+			dbObj.RunSQLInsert(queryObj.getCornersRightTableInsertSQL(fileObj.getCornersRightTable()));
+			
+			System.out.println("Completed Insert of Corners Right Table...");
 			
 			//Insert Long Balls Table
+			dbObj.RunSQLInsert(queryObj.getLongBallsTableInsertSQL(fileObj.getLongBallsTable()));
+			
+			System.out.println("Completed Insert of Long Balls Table...");
 			
 			//Insert Lay Offs Table
+			dbObj.RunSQLInsert(queryObj.getLayOffsTableInsertSQL(fileObj.getLayOffsTable()));
+			
+			System.out.println("Completed Insert of Lay Offs Table...");
 			
 			//Insert Crosses Corners Air Table
+			dbObj.RunSQLInsert(queryObj.getCrossesCornersAirTableInsertSQL(fileObj.getCrossesCornersAirTable()));
+			
+			System.out.println("Completed Insert of Crosses Corners Air Table...");
 			
 			//Insert Crosses Air Table
+			dbObj.RunSQLInsert(queryObj.getCrossesAirTableInsertSQL(fileObj.getCrossesAirTable()));
+			
+			System.out.println("Completed Insert of Crosses Air Table...");
 			
 		}
 		
