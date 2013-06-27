@@ -418,5 +418,182 @@ public class Query {
 		
 		return InsertSQL;
 	}
+	
+	public String getDribblesTable(ArrayList<Dribbles> DribblesTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`Dribbles` (" + getColumnNames(DribblesTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (Dribbles cc : DribblesTable){
+			Values = Values + "(" + "'" + cc.getID() + "','" + cc.getSuccessful()+ "','" + cc.getUnsuccessful() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+	
+	public String getCrossesCornersLeftTable(ArrayList<CrossesCornersLeft> CrossesCornersLeftTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`CrossesCornersLeft` (" + getColumnNames(CrossesCornersLeftTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (CrossesCornersLeft cc : CrossesCornersLeftTable){
+			Values = Values + "(" + "'" + cc.getID() + "','" + cc.getSuccessful()+ "','" + cc.getUnsuccessful() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+	
+	public String getCrossesLeftTable(ArrayList<CrossesLeft> CrossesLeftTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`CrossesLeft` (" + getColumnNames(CrossesLeftTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (CrossesLeft cc : CrossesLeftTable){
+			Values = Values + "(" + "'" + cc.getID() + "','" + cc.getSuccessful()+ "','" + cc.getUnsuccessful() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+	
+	public String getCornersLeftTable(ArrayList<CornersLeft> CornersLeftTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`CornersLeft` (" + getColumnNames(CornersLeftTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (CornersLeft cc : CornersLeftTable){
+			Values = Values + "(" + "'" + cc.getID() + "','" + cc.getSuccessful()+ "','" + cc.getUnsuccessful() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+	
+	public String getCrossesCornersRightTable(ArrayList<CrossesCornersRight> CrossesCornersRightTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`CrossesCornersRight` (" + getColumnNames(CrossesCornersRightTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (CrossesCornersRight cc : CrossesCornersRightTable){
+			Values = Values + "(" + "'" + cc.getID() + "','" + cc.getSuccessful()+ "','" + cc.getUnsuccessful() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+	
+	public String getCrossesRightTable(ArrayList<CrossesRight> CrossesRightTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`CrossesRight` (" + getColumnNames(CrossesRightTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (CrossesRight cc : CrossesRightTable){
+			Values = Values + "(" + "'" + cc.getID() + "','" + cc.getSuccessful()+ "','" + cc.getUnsuccessful() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+	
+	public String getCornersRightTable(ArrayList<CornersRight> CornersRightTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`CornersRight` (" + getColumnNames(CornersRightTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (CornersRight cc : CornersRightTable){
+			Values = Values + "(" + "'" + cc.getID() + "','" + cc.getSuccessful()+ "','" + cc.getUnsuccessful() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+	
+	public String getLongBallsTable(ArrayList<LongBalls> LongBallsTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`LongBalls` (" + getColumnNames(LongBallsTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (LongBalls cc : LongBallsTable){
+			Values = Values + "(" + "'" + cc.getID() + "','" + cc.getSuccessful()+ "','" + cc.getUnsuccessful() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+	
+	public String getLayOffsTable(ArrayList<LayOffs> LayOffsTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`LayOffs` (" + getColumnNames(LayOffsTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (LayOffs cc : LayOffsTable){
+			Values = Values + "(" + "'" + cc.getID() + "','" + cc.getSuccessful()+ "','" + cc.getUnsuccessful() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+	
+	public String getCrossesCornersAirTable(ArrayList<CrossesCornersAir> CrossesCornersAirTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`CrossesCornersAir` (" + getColumnNames(CrossesCornersAirTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (CrossesCornersAir cc : CrossesCornersAirTable){
+			Values = Values + "(" + "'" + cc.getID() + "','" + cc.getSuccessful()+ "','" + cc.getUnsuccessful() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+	
+	public String getCrossesAirTable(ArrayList<CrossesAir> CrossesAirTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`CrossesAir` (" + getColumnNames(CrossesAirTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (CrossesAir cc : CrossesAirTable){
+			Values = Values + "(" + "'" + cc.getID() + "','" + cc.getSuccessful()+ "','" + cc.getUnsuccessful() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+
 
 }

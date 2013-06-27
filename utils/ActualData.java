@@ -27,6 +27,17 @@ public class ActualData extends KeyData{
 	private ArrayList<CrossesCorners> CrossesCornersTable = new ArrayList<CrossesCorners>();
 	private ArrayList<CornersIntoBox> CornersIntoBoxTable = new ArrayList<CornersIntoBox>();
 	private ArrayList<ThrowIn> ThrowInTable = new ArrayList<ThrowIn>();
+	private ArrayList<Dribbles> DribblesTable = new ArrayList<Dribbles>();
+	private ArrayList<CrossesCornersLeft> CrossesCornersLeftTable = new ArrayList<CrossesCornersLeft>();
+	private ArrayList<CrossesLeft> CrossesLeftTable = new ArrayList<CrossesLeft>();
+	private ArrayList<CornersLeft> CornersLeftTable = new ArrayList<CornersLeft>();
+	private ArrayList<CrossesCornersRight> CrossesCornersRightTable = new ArrayList<CrossesCornersRight>();
+	private ArrayList<CrossesRight> CrossesRightTable = new ArrayList<CrossesRight>();
+	private ArrayList<CornersRight> CornersRightTable = new ArrayList<CornersRight>();
+	private ArrayList<LongBalls> LongBallsTable = new ArrayList<LongBalls>();
+	private ArrayList<LayOffs> LayOffsTable = new ArrayList<LayOffs>();
+	private ArrayList<CrossesCornersAir> CrossesCornersAirTable = new ArrayList<CrossesCornersAir>();
+	private ArrayList<CrossesAir> CrossesAirTable = new ArrayList<CrossesAir>();
 
 	public ArrayList<Penalties> getPenaltiesTable() {
 		return PenaltiesTable;
@@ -171,6 +182,96 @@ public class ActualData extends KeyData{
 
 	public void setThrowInTable(ArrayList<ThrowIn> throwInTable) {
 		ThrowInTable = throwInTable;
+	}
+
+	public ArrayList<Dribbles> getDribblesTable() {
+		return DribblesTable;
+	}
+
+	public void setDribblesTable(ArrayList<Dribbles> dribblesTable) {
+		DribblesTable = dribblesTable;
+	}
+
+	public ArrayList<CrossesCornersLeft> getCrossesCornersLeftTable() {
+		return CrossesCornersLeftTable;
+	}
+
+	public void setCrossesCornersLeftTable(ArrayList<CrossesCornersLeft> crossesCornersLeftTable) {
+		CrossesCornersLeftTable = crossesCornersLeftTable;
+	}
+
+	public ArrayList<CrossesLeft> getCrossesLeftTable() {
+		return CrossesLeftTable;
+	}
+
+	public void setCrossesLeftTable(ArrayList<CrossesLeft> crossesLeftTable) {
+		CrossesLeftTable = crossesLeftTable;
+	}
+
+	public ArrayList<CornersLeft> getCornersLeftTable() {
+		return CornersLeftTable;
+	}
+
+	public void setCornersLeftTable(ArrayList<CornersLeft> cornersLeftTable) {
+		CornersLeftTable = cornersLeftTable;
+	}
+
+	public ArrayList<CrossesCornersRight> getCrossesCornersRightTable() {
+		return CrossesCornersRightTable;
+	}
+
+	public void setCrossesCornersRightTable(
+			ArrayList<CrossesCornersRight> crossesCornersRightTable) {
+		CrossesCornersRightTable = crossesCornersRightTable;
+	}
+
+	public ArrayList<CrossesRight> getCrossesRightTable() {
+		return CrossesRightTable;
+	}
+
+	public void setCrossesRightTable(ArrayList<CrossesRight> crossesRightTable) {
+		CrossesRightTable = crossesRightTable;
+	}
+
+	public ArrayList<CornersRight> getCornersRightTable() {
+		return CornersRightTable;
+	}
+
+	public void setCornersRightTable(ArrayList<CornersRight> cornersRightTable) {
+		CornersRightTable = cornersRightTable;
+	}
+
+	public ArrayList<LongBalls> getLongBallsTable() {
+		return LongBallsTable;
+	}
+
+	public void setLongBallsTable(ArrayList<LongBalls> longBallsTable) {
+		LongBallsTable = longBallsTable;
+	}
+
+	public ArrayList<LayOffs> getLayOffsTable() {
+		return LayOffsTable;
+	}
+
+	public void setLayOffsTable(ArrayList<LayOffs> layOffsTable) {
+		LayOffsTable = layOffsTable;
+	}
+
+	public ArrayList<CrossesCornersAir> getCrossesCornersAirTable() {
+		return CrossesCornersAirTable;
+	}
+
+	public void setCrossesCornersAirTable(
+			ArrayList<CrossesCornersAir> crossesCornersAirTable) {
+		CrossesCornersAirTable = crossesCornersAirTable;
+	}
+
+	public ArrayList<CrossesAir> getCrossesAirTable() {
+		return CrossesAirTable;
+	}
+
+	public void setCrossesAirTable(ArrayList<CrossesAir> crossesAirTable) {
+		CrossesAirTable = crossesAirTable;
 	}
 
 	public int getKey(ArrayList<Matches> matchesTable,ArrayList<Players> playersTable, ArrayList<Teams> teamsTable, String dataLine) 
@@ -604,6 +705,216 @@ public class ActualData extends KeyData{
 		tempTable.add(tempObj);
 		
 		setThrowInTable(tempTable);
+		
+	}
+
+	public void populateDribblesTable(int key, String dataLine) {
+		ArrayList<Dribbles> tempTable = new ArrayList<Dribbles>();
+		
+		tempTable = getDribblesTable();
+		
+		Dribbles tempObj = new Dribbles();
+		
+		String[] data = dataLine.split(",");
+		
+		tempObj.setID(key);
+		tempObj.setSuccessful(Integer.parseInt(data[107]));
+		tempObj.setUnsuccessful(Integer.parseInt(data[108]));
+		
+		tempTable.add(tempObj);
+		
+		setDribblesTable(tempTable);
+		
+	}
+
+	public void populateCrossesCornersLeftTable(int key, String dataLine) {
+		ArrayList<CrossesCornersLeft> tempTable = new ArrayList<CrossesCornersLeft>();
+		
+		tempTable = getCrossesCornersLeftTable();
+		
+		CrossesCornersLeft tempObj = new CrossesCornersLeft();
+		
+		String[] data = dataLine.split(",");
+		
+		tempObj.setID(key);
+		tempObj.setSuccessful(Integer.parseInt(data[109]));
+		tempObj.setUnsuccessful(Integer.parseInt(data[110]));
+		
+		tempTable.add(tempObj);
+		
+		setCrossesCornersLeftTable(tempTable);
+		
+	}
+
+	public void populateCrossesLeftTable(int key, String dataLine) {
+		ArrayList<CrossesLeft> tempTable = new ArrayList<CrossesLeft>();
+		
+		tempTable = getCrossesLeftTable();
+		
+		CrossesLeft tempObj = new CrossesLeft();
+		
+		String[] data = dataLine.split(",");
+		
+		tempObj.setID(key);
+		tempObj.setSuccessful(Integer.parseInt(data[111]));
+		tempObj.setUnsuccessful(Integer.parseInt(data[112]));
+		
+		tempTable.add(tempObj);
+		
+		setCrossesLeftTable(tempTable);
+		
+	}
+
+	public void populateCornersLeftTable(int key, String dataLine) {
+		ArrayList<CornersLeft> tempTable = new ArrayList<CornersLeft>();
+		
+		tempTable = getCornersLeftTable();
+		
+		CornersLeft tempObj = new CornersLeft();
+		
+		String[] data = dataLine.split(",");
+		
+		tempObj.setID(key);
+		tempObj.setSuccessful(Integer.parseInt(data[113]));
+		tempObj.setUnsuccessful(Integer.parseInt(data[114]));
+		
+		tempTable.add(tempObj);
+		
+		setCornersLeftTable(tempTable);
+		
+	}
+	
+	public void populateCrossesCornersRightTable(int key, String dataLine) {
+		ArrayList<CrossesCornersRight> tempTable = new ArrayList<CrossesCornersRight>();
+		
+		tempTable = getCrossesCornersRightTable();
+		
+		CrossesCornersRight tempObj = new CrossesCornersRight();
+		
+		String[] data = dataLine.split(",");
+		
+		tempObj.setID(key);
+		tempObj.setSuccessful(Integer.parseInt(data[115]));
+		tempObj.setUnsuccessful(Integer.parseInt(data[116]));
+		
+		tempTable.add(tempObj);
+		
+		setCrossesCornersRightTable(tempTable);
+		
+	}
+
+	public void populateCrossesRightTable(int key, String dataLine) {
+		ArrayList<CrossesRight> tempTable = new ArrayList<CrossesRight>();
+		
+		tempTable = getCrossesRightTable();
+		
+		CrossesRight tempObj = new CrossesRight();
+		
+		String[] data = dataLine.split(",");
+		
+		tempObj.setID(key);
+		tempObj.setSuccessful(Integer.parseInt(data[117]));
+		tempObj.setUnsuccessful(Integer.parseInt(data[118]));
+		
+		tempTable.add(tempObj);
+		
+		setCrossesRightTable(tempTable);
+		
+	}
+
+	public void populateCornersRightTable(int key, String dataLine) {
+		ArrayList<CornersRight> tempTable = new ArrayList<CornersRight>();
+		
+		tempTable = getCornersRightTable();
+		
+		CornersRight tempObj = new CornersRight();
+		
+		String[] data = dataLine.split(",");
+		
+		tempObj.setID(key);
+		tempObj.setSuccessful(Integer.parseInt(data[119]));
+		tempObj.setUnsuccessful(Integer.parseInt(data[120]));
+		
+		tempTable.add(tempObj);
+		
+		setCornersRightTable(tempTable);
+		
+	}
+	
+
+	public void populateLongBallsTable(int key, String dataLine) {
+		ArrayList<LongBalls> tempTable = new ArrayList<LongBalls>();
+		
+		tempTable = getLongBallsTable();
+		
+		LongBalls tempObj = new LongBalls();
+		
+		String[] data = dataLine.split(",");
+		
+		tempObj.setID(key);
+		tempObj.setSuccessful(Integer.parseInt(data[121]));
+		tempObj.setUnsuccessful(Integer.parseInt(data[122]));
+		
+		tempTable.add(tempObj);
+		
+		setLongBallsTable(tempTable);
+		
+	}
+
+	public void populateLayOffsTable(int key, String dataLine) {
+		ArrayList<LayOffs> tempTable = new ArrayList<LayOffs>();
+		
+		tempTable = getLayOffsTable();
+		
+		LayOffs tempObj = new LayOffs();
+		
+		String[] data = dataLine.split(",");
+		
+		tempObj.setID(key);
+		tempObj.setSuccessful(Integer.parseInt(data[123]));
+		tempObj.setUnsuccessful(Integer.parseInt(data[124]));
+		
+		tempTable.add(tempObj);
+		
+		setLayOffsTable(tempTable);
+		
+	}
+	
+	public void populateCrossesCornersAirTable(int key, String dataLine) {
+		ArrayList<CrossesCornersAir> tempTable = new ArrayList<CrossesCornersAir>();
+		
+		tempTable = getCrossesCornersAirTable();
+		
+		CrossesCornersAir tempObj = new CrossesCornersAir();
+		
+		String[] data = dataLine.split(",");
+		
+		tempObj.setID(key);
+		tempObj.setSuccessful(Integer.parseInt(data[126]));
+		tempObj.setUnsuccessful(Integer.parseInt(data[127]));
+		
+		tempTable.add(tempObj);
+		
+		setCrossesCornersAirTable(tempTable);
+		
+	}
+
+	public void populateCrossesAirTable(int key, String dataLine) {
+		ArrayList<CrossesAir> tempTable = new ArrayList<CrossesAir>();
+		
+		tempTable = getCrossesAirTable();
+		
+		CrossesAir tempObj = new CrossesAir();
+		
+		String[] data = dataLine.split(",");
+		
+		tempObj.setID(key);
+		tempObj.setSuccessful(Integer.parseInt(data[128]));
+		tempObj.setUnsuccessful(Integer.parseInt(data[129]));
+		
+		tempTable.add(tempObj);
+		
+		setCrossesAirTable(tempTable);
 		
 	}
 

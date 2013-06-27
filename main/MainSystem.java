@@ -155,6 +155,28 @@ public class MainSystem {
 			
 			System.out.println("Completed Insert of Throw In Table...");
 			
+			//Insert Dribbles Table
+			
+			//Insert Crosses Corners Left Table
+			
+			//Insert Crosses Left Table
+			
+			//Insert Corners Left Table
+			
+			//Insert Crosses Corners Right Table
+			
+			//Insert Crosses Right Table
+			
+			//Insert Corners Right Table
+			
+			//Insert Long Balls Table
+			
+			//Insert Lay Offs Table
+			
+			//Insert Crosses Corners Air Table
+			
+			//Insert Crosses Air Table
+			
 		}
 		
 		/*String sqlInsert = "";

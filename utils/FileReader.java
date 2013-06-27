@@ -37,6 +37,17 @@ public class FileReader {
 	private ArrayList<CrossesCorners> CrossesCornersTable = new ArrayList<CrossesCorners>();
 	private ArrayList<CornersIntoBox> CornersIntoBoxTable = new ArrayList<CornersIntoBox>();
 	private ArrayList<ThrowIn> ThrowInTable = new ArrayList<ThrowIn>();
+	private ArrayList<Dribbles> DribblesTable = new ArrayList<Dribbles>();
+	private ArrayList<CrossesCornersLeft> CrossesCornersLeftTable = new ArrayList<CrossesCornersLeft>();
+	private ArrayList<CrossesLeft> CrossesLeftTable = new ArrayList<CrossesLeft>();
+	private ArrayList<CornersLeft> CornersLeftTable = new ArrayList<CornersLeft>();
+	private ArrayList<CrossesCornersRight> CrossesCornersRightTable = new ArrayList<CrossesCornersRight>();
+	private ArrayList<CrossesRight> CrossesRightTable = new ArrayList<CrossesRight>();
+	private ArrayList<CornersRight> CornersRightTable = new ArrayList<CornersRight>();
+	private ArrayList<LongBalls> LongBallsTable = new ArrayList<LongBalls>();
+	private ArrayList<LayOffs> LayOffsTable = new ArrayList<LayOffs>();
+	private ArrayList<CrossesCornersAir> CrossesCornersAirTable = new ArrayList<CrossesCornersAir>();
+	private ArrayList<CrossesAir> CrossesAirTable = new ArrayList<CrossesAir>();
 	
 	public ArrayList<String> getHeaders() {
 		return Headers;
@@ -222,6 +233,96 @@ public class FileReader {
 		ThrowInTable = throwInTable;
 	}
 
+	public ArrayList<Dribbles> getDribblesTable() {
+		return DribblesTable;
+	}
+
+	public void setDribblesTable(ArrayList<Dribbles> dribblesTable) {
+		DribblesTable = dribblesTable;
+	}
+
+	public ArrayList<CrossesCornersLeft> getCrossesCornersLeftTable() {
+		return CrossesCornersLeftTable;
+	}
+
+	public void setCrossesCornersLeftTable(ArrayList<CrossesCornersLeft> crossesCornersLeftTable) {
+		CrossesCornersLeftTable = crossesCornersLeftTable;
+	}
+
+	public ArrayList<CrossesLeft> getCrossesLeftTable() {
+		return CrossesLeftTable;
+	}
+
+	public void setCrossesLeftTable(ArrayList<CrossesLeft> crossesLeftTable) {
+		CrossesLeftTable = crossesLeftTable;
+	}
+
+	public ArrayList<CrossesCornersRight> getCrossesCornersRightTable() {
+		return CrossesCornersRightTable;
+	}
+
+	public void setCrossesCornersRightTable(
+			ArrayList<CrossesCornersRight> crossesCornersRightTable) {
+		CrossesCornersRightTable = crossesCornersRightTable;
+	}
+
+	public ArrayList<CrossesRight> getCrossesRightTable() {
+		return CrossesRightTable;
+	}
+
+	public void setCrossesRightTable(ArrayList<CrossesRight> crossesRightTable) {
+		CrossesRightTable = crossesRightTable;
+	}
+
+	public ArrayList<CornersRight> getCornersRightTable() {
+		return CornersRightTable;
+	}
+
+	public void setCornersRightTable(ArrayList<CornersRight> cornersRightTable) {
+		CornersRightTable = cornersRightTable;
+	}
+	
+	public ArrayList<CornersLeft> getCornersLeftTable() {
+		return CornersLeftTable;
+	}
+
+	public void setCornersLeftTable(ArrayList<CornersLeft> cornersLeftTable) {
+		CornersLeftTable = cornersLeftTable;
+	}
+
+	public ArrayList<LongBalls> getLongBallsTable() {
+		return LongBallsTable;
+	}
+
+	public void setLongBallsTable(ArrayList<LongBalls> longBallsTable) {
+		LongBallsTable = longBallsTable;
+	}
+
+	public ArrayList<LayOffs> getLayOffsTable() {
+		return LayOffsTable;
+	}
+
+	public void setLayOffsTable(ArrayList<LayOffs> layOffsTable) {
+		LayOffsTable = layOffsTable;
+	}
+
+	public ArrayList<CrossesCornersAir> getCrossesCornersAirTable() {
+		return CrossesCornersAirTable;
+	}
+
+	public void setCrossesCornersAirTable(
+			ArrayList<CrossesCornersAir> crossesCornersAirTable) {
+		CrossesCornersAirTable = crossesCornersAirTable;
+	}
+
+	public ArrayList<CrossesAir> getCrossesAirTable() {
+		return CrossesAirTable;
+	}
+
+	public void setCrossesAirTable(ArrayList<CrossesAir> crossesAirTable) {
+		CrossesAirTable = crossesAirTable;
+	}
+
 	public enum ReadType {
 		Team, Player, Matches;
 	}
@@ -319,6 +420,17 @@ public class FileReader {
 				dataObj.populateCrossesCornersTable(key,strLine.trim());
 				dataObj.populateCornersIntoBoxTable(key,strLine.trim());
 				dataObj.populateThrowInTable(key, strLine.trim());
+				dataObj.populateDribblesTable(key, strLine.trim());
+				dataObj.populateCrossesCornersLeftTable(key, strLine.trim());
+				dataObj.populateCrossesLeftTable(key, strLine.trim());
+				dataObj.populateCornersLeftTable(key, strLine.trim());
+				dataObj.populateCrossesCornersRightTable(key, strLine.trim());
+				dataObj.populateCrossesRightTable(key, strLine.trim());
+				dataObj.populateCornersRightTable(key, strLine.trim());
+				dataObj.populateLongBallsTable(key, strLine.trim());
+				dataObj.populateLayOffsTable(key, strLine.trim());
+				dataObj.populateCrossesCornersAirTable(key, strLine.trim());
+				dataObj.populateCrossesAirTable(key, strLine.trim());
 			}
 			
 			in.close();
@@ -341,6 +453,17 @@ public class FileReader {
 			setCrossesCornersTable(dataObj.getCrossesCornersTable());
 			setCornersIntoBoxTable(dataObj.getCornersIntoBoxTable());
 			setThrowInTable(dataObj.getThrowInTable());
+			setDribblesTable(dataObj.getDribblesTable());
+			setCrossesCornersLeftTable(dataObj.getCrossesCornersLeftTable());
+			setCrossesLeftTable(dataObj.getCrossesLeftTable());
+			setCornersLeftTable(dataObj.getCornersLeftTable());
+			setCrossesCornersRightTable(dataObj.getCrossesCornersRightTable());
+			setCrossesRightTable(dataObj.getCrossesRightTable());
+			setCornersRightTable(dataObj.getCornersRightTable());
+			setLongBallsTable(dataObj.getLongBallsTable());
+			setLayOffsTable(dataObj.getLayOffsTable());
+			setCrossesCornersAirTable(dataObj.getCrossesCornersAirTable());
+			setCrossesAirTable(dataObj.getCrossesAirTable());
 			
 		}catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -349,5 +472,7 @@ public class FileReader {
 		
 		
 	}
+
+
 
 }
