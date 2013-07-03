@@ -48,6 +48,15 @@ public class FileReader {
 	private ArrayList<LayOffs> LayOffsTable = new ArrayList<LayOffs>();
 	private ArrayList<CrossesCornersAir> CrossesCornersAirTable = new ArrayList<CrossesCornersAir>();
 	private ArrayList<CrossesAir> CrossesAirTable = new ArrayList<CrossesAir>();
+	private ArrayList<OpenPlayCrosses> OpenPlayCrossesTable = new ArrayList<OpenPlayCrosses>();
+	private ArrayList<GoalAssists> GoalAssistsTable = new ArrayList<GoalAssists>();
+	private ArrayList<Key> KeyTable = new ArrayList<Key>();
+	private ArrayList<Duels> DuelsTable = new ArrayList<Duels>();
+	private ArrayList<AerialDuels> AerialDuelsTable = new ArrayList<AerialDuels>();
+	private ArrayList<GroundDuels> GroundDuelsTable = new ArrayList<GroundDuels>();
+	private ArrayList<Tackles> TacklesTable = new ArrayList<Tackles>();
+	private ArrayList<Clearances> ClearancesTable = new ArrayList<Clearances>();
+	private ArrayList<Fouls> FoulsTable = new ArrayList<Fouls>();
 	
 	public ArrayList<String> getHeaders() {
 		return Headers;
@@ -323,6 +332,78 @@ public class FileReader {
 		CrossesAirTable = crossesAirTable;
 	}
 
+	public ArrayList<OpenPlayCrosses> getOpenPlayCrossesTable() {
+		return OpenPlayCrossesTable;
+	}
+
+	public void setOpenPlayCrossesTable(ArrayList<OpenPlayCrosses> openPlayCrossesTable) {
+		OpenPlayCrossesTable = openPlayCrossesTable;
+	}
+
+	public ArrayList<GoalAssists> getGoalAssistsTable() {
+		return GoalAssistsTable;
+	}
+
+	public void setGoalAssistsTable(ArrayList<GoalAssists> goalAssistsTable) {
+		GoalAssistsTable = goalAssistsTable;
+	}
+
+	public ArrayList<Key> getKeyTable() {
+		return KeyTable;
+	}
+
+	public void setKeyTable(ArrayList<Key> keyTable) {
+		KeyTable = keyTable;
+	}
+
+	public ArrayList<Duels> getDuelsTable() {
+		return DuelsTable;
+	}
+
+	public void setDuelsTable(ArrayList<Duels> duelsTable) {
+		DuelsTable = duelsTable;
+	}
+
+	public ArrayList<AerialDuels> getAerialDuelsTable() {
+		return AerialDuelsTable;
+	}
+
+	public void setAerialDuelsTable(ArrayList<AerialDuels> aerialDuelsTable) {
+		AerialDuelsTable = aerialDuelsTable;
+	}
+
+	public ArrayList<GroundDuels> getGroundDuelsTable() {
+		return GroundDuelsTable;
+	}
+
+	public void setGroundDuelsTable(ArrayList<GroundDuels> groundDuelsTable) {
+		GroundDuelsTable = groundDuelsTable;
+	}
+
+	public ArrayList<Tackles> getTacklesTable() {
+		return TacklesTable;
+	}
+
+	public void setTacklesTable(ArrayList<Tackles> tacklesTable) {
+		TacklesTable = tacklesTable;
+	}
+
+	public ArrayList<Clearances> getClearancesTable() {
+		return ClearancesTable;
+	}
+
+	public void setClearancesTable(ArrayList<Clearances> clearancesTable) {
+		ClearancesTable = clearancesTable;
+	}
+
+	public ArrayList<Fouls> getFoulsTable() {
+		return FoulsTable;
+	}
+
+	public void setFoulsTable(ArrayList<Fouls> foulsTable) {
+		FoulsTable = foulsTable;
+	}
+
 	public enum ReadType {
 		Team, Player, Matches;
 	}
@@ -431,6 +512,15 @@ public class FileReader {
 				dataObj.populateLayOffsTable(key, strLine.trim());
 				dataObj.populateCrossesCornersAirTable(key, strLine.trim());
 				dataObj.populateCrossesAirTable(key, strLine.trim());
+				dataObj.populateOpenPlayCorsses(key, strLine.trim());
+				dataObj.populateGoalAssistsTable(key, strLine.trim());
+				dataObj.populateKeyTable(key, strLine.trim());
+				dataObj.populateDuelsTable(key, strLine.trim());
+				dataObj.populateAerialDuelsTable(key, strLine.trim());
+				dataObj.populateGroundDuelsTable(key, strLine.trim());
+				dataObj.populateTacklesTable(key, strLine.trim());
+				dataObj.popuateClearancesTable(key, strLine.trim());
+				dataObj.populateFoulsTable(key, strLine.trim());
 			}
 			
 			in.close();
@@ -464,6 +554,15 @@ public class FileReader {
 			setLayOffsTable(dataObj.getLayOffsTable());
 			setCrossesCornersAirTable(dataObj.getCrossesCornersAirTable());
 			setCrossesAirTable(dataObj.getCrossesAirTable());
+			setOpenPlayCrossesTable(dataObj.getOpenPlayCrossesTable());
+			setGoalAssistsTable(dataObj.getGoalAssistsTable());
+			setKeyTable(dataObj.getKeyTable());
+			setDuelsTable(dataObj.getDuelsTable());
+			setAerialDuelsTable(dataObj.getAerialDuelsTable());
+			setGroundDuelsTable(dataObj.getGroundDuelsTable());
+			setTacklesTable(dataObj.getTacklesTable());
+			setClearancesTable(dataObj.getClearancesTable());
+			setFoulsTable(dataObj.getFoulsTable());
 			
 		}catch (Exception e) {
 			// TODO Auto-generated catch block

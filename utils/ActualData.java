@@ -38,6 +38,15 @@ public class ActualData extends KeyData{
 	private ArrayList<LayOffs> LayOffsTable = new ArrayList<LayOffs>();
 	private ArrayList<CrossesCornersAir> CrossesCornersAirTable = new ArrayList<CrossesCornersAir>();
 	private ArrayList<CrossesAir> CrossesAirTable = new ArrayList<CrossesAir>();
+	private ArrayList<OpenPlayCrosses> OpenPlayCrossesTable = new ArrayList<OpenPlayCrosses>();
+	private ArrayList<GoalAssists> GoalAssistsTable = new ArrayList<GoalAssists>();
+	private ArrayList<Key> KeyTable = new ArrayList<Key>();
+	private ArrayList<Duels> DuelsTable = new ArrayList<Duels>();
+	private ArrayList<AerialDuels> AerialDuelsTable = new ArrayList<AerialDuels>();
+	private ArrayList<GroundDuels> GroundDuelsTable = new ArrayList<GroundDuels>();
+	private ArrayList<Tackles> TacklesTable = new ArrayList<Tackles>();
+	private ArrayList<Clearances> ClearancesTable = new ArrayList<Clearances>();
+	private ArrayList<Fouls> FoulsTable = new ArrayList<Fouls>();
 
 	public ArrayList<Penalties> getPenaltiesTable() {
 		return PenaltiesTable;
@@ -272,6 +281,78 @@ public class ActualData extends KeyData{
 
 	public void setCrossesAirTable(ArrayList<CrossesAir> crossesAirTable) {
 		CrossesAirTable = crossesAirTable;
+	}
+
+	public ArrayList<OpenPlayCrosses> getOpenPlayCrossesTable() {
+		return OpenPlayCrossesTable;
+	}
+
+	public void setOpenPlayCrossesTable(ArrayList<OpenPlayCrosses> openPlayCrossesTable) {
+		OpenPlayCrossesTable = openPlayCrossesTable;
+	}
+
+	public ArrayList<GoalAssists> getGoalAssistsTable() {
+		return GoalAssistsTable;
+	}
+
+	public void setGoalAssistsTable(ArrayList<GoalAssists> goalAssistsTable) {
+		GoalAssistsTable = goalAssistsTable;
+	}
+
+	public ArrayList<Fouls> getFoulsTable() {
+		return FoulsTable;
+	}
+
+	public void setFoulsTable(ArrayList<Fouls> foulsTable) {
+		FoulsTable = foulsTable;
+	}
+
+	public ArrayList<Key> getKeyTable() {
+		return KeyTable;
+	}
+
+	public void setKeyTable(ArrayList<Key> keyTable) {
+		KeyTable = keyTable;
+	}
+	
+	public ArrayList<Duels> getDuelsTable() {
+		return DuelsTable;
+	}
+
+	public void setDuelsTable(ArrayList<Duels> duelsTable) {
+		DuelsTable = duelsTable;
+	}
+
+	public ArrayList<AerialDuels> getAerialDuelsTable() {
+		return AerialDuelsTable;
+	}
+
+	public void setAerialDuelsTable(ArrayList<AerialDuels> aerialDuelsTable) {
+		AerialDuelsTable = aerialDuelsTable;
+	}
+
+	public ArrayList<GroundDuels> getGroundDuelsTable() {
+		return GroundDuelsTable;
+	}
+
+	public void setGroundDuelsTable(ArrayList<GroundDuels> groundDuelsTable) {
+		GroundDuelsTable = groundDuelsTable;
+	}
+	
+	public ArrayList<Tackles> getTacklesTable() {
+		return TacklesTable;
+	}
+
+	public void setTacklesTable(ArrayList<Tackles> tacklesTable) {
+		TacklesTable = tacklesTable;
+	}
+
+	public ArrayList<Clearances> getClearancesTable() {
+		return ClearancesTable;
+	}
+
+	public void setClearancesTable(ArrayList<Clearances> clearancesTable) {
+		ClearancesTable = clearancesTable;
 	}
 
 	public int getKey(ArrayList<Matches> matchesTable,ArrayList<Players> playersTable, ArrayList<Teams> teamsTable, String dataLine) 
@@ -915,6 +996,188 @@ public class ActualData extends KeyData{
 		tempTable.add(tempObj);
 		
 		setCrossesAirTable(tempTable);
+		
+	}
+
+	public void populateOpenPlayCorsses(int key, String dataLine) {
+		ArrayList<OpenPlayCrosses> tempTable = new ArrayList<OpenPlayCrosses>();
+		
+		tempTable = getOpenPlayCrossesTable();
+		
+		OpenPlayCrosses tempObj = new OpenPlayCrosses();
+		
+		String[] data = dataLine.split(",");
+		
+		tempObj.setID(key);
+		tempObj.setSuccessful(Integer.parseInt(data[130]));
+		tempObj.setUnsuccessful(Integer.parseInt(data[131]));
+		
+		tempTable.add(tempObj);
+		
+		setOpenPlayCrossesTable(tempTable);		
+	}
+
+	public void populateGoalAssistsTable(int key, String dataLine) {
+		ArrayList<GoalAssists> tempTable = new ArrayList<GoalAssists>();
+		
+		tempTable = getGoalAssistsTable();
+		
+		GoalAssists tempObj = new GoalAssists();
+		
+		String[] data = dataLine.split(",");
+		
+		tempObj.setID(key);
+		tempObj.setCorner(Integer.parseInt(data[133]));
+		tempObj.setFreeKick(Integer.parseInt(data[134]));
+		tempObj.setThrowIn(Integer.parseInt(data[135]));
+		tempObj.setGoalKick(Integer.parseInt(data[136]));
+		tempObj.setSetPiece(Integer.parseInt(data[137]));
+		
+		tempTable.add(tempObj);
+		
+		setGoalAssistsTable(tempTable);
+		
+	}
+
+	public void populateKeyTable(int key, String dataLine) {
+		ArrayList<Key> tempTable = new ArrayList<Key>();
+		
+		tempTable = getKeyTable();
+		
+		Key tempObj = new Key();
+		
+		String[] data = dataLine.split(",");
+		
+		tempObj.setID(key);
+		tempObj.setCorner(Integer.parseInt(data[138]));
+		tempObj.setFreeKick(Integer.parseInt(data[139]));
+		tempObj.setThrowIn(Integer.parseInt(data[140]));
+		tempObj.setGoalKick(Integer.parseInt(data[141]));
+		tempObj.setSetPiece(Integer.parseInt(data[142]));
+		
+		tempTable.add(tempObj);
+		
+		setKeyTable(tempTable);
+		
+	}
+	
+
+	public void populateDuelsTable(int key, String dataLine) {
+		ArrayList<Duels> tempTable = new ArrayList<Duels>();
+		
+		tempTable = getDuelsTable();
+		
+		Duels tempObj = new Duels();
+		
+		String[] data = dataLine.split(",");
+		
+		tempObj.setID(key);
+		tempObj.setWon(Integer.parseInt(data[143]));
+		tempObj.setLost(Integer.parseInt(data[144]));
+		
+		tempTable.add(tempObj);
+		
+		setDuelsTable(tempTable);	
+		
+	}
+
+	public void populateAerialDuelsTable(int key, String dataLine) {
+		ArrayList<AerialDuels> tempTable = new ArrayList<AerialDuels>();
+		
+		tempTable = getAerialDuelsTable();
+		
+		AerialDuels tempObj = new AerialDuels();
+		
+		String[] data = dataLine.split(",");
+		
+		tempObj.setID(key);
+		tempObj.setWon(Integer.parseInt(data[145]));
+		tempObj.setLost(Integer.parseInt(data[146]));
+		
+		tempTable.add(tempObj);
+		
+		setAerialDuelsTable(tempTable);
+	}
+
+	public void populateGroundDuelsTable(int key, String dataLine) {
+		ArrayList<GroundDuels> tempTable = new ArrayList<GroundDuels>();
+		
+		tempTable = getGroundDuelsTable();
+		
+		GroundDuels tempObj = new GroundDuels();
+		
+		String[] data = dataLine.split(",");
+		
+		tempObj.setID(key);
+		tempObj.setWon(Integer.parseInt(data[147]));
+		tempObj.setLost(Integer.parseInt(data[148]));
+		
+		tempTable.add(tempObj);
+		
+		setGroundDuelsTable(tempTable);
+		
+	}
+
+	public void populateTacklesTable(int key, String dataLine) {
+		ArrayList<Tackles> tempTable = new ArrayList<Tackles>();
+		
+		tempTable = getTacklesTable();
+		
+		Tackles tempObj = new Tackles();
+		
+		String[] data = dataLine.split(",");
+		
+		tempObj.setID(key);
+		tempObj.setWon(Integer.parseInt(data[149]));
+		tempObj.setLost(Integer.parseInt(data[150]));
+		
+		tempTable.add(tempObj);
+		
+		setTacklesTable(tempTable);		
+	}
+	
+
+	public void popuateClearancesTable(int key, String dataLine) {
+		ArrayList<Clearances> tempTable = new ArrayList<Clearances>();
+		
+		tempTable = getClearancesTable();
+		
+		Clearances tempObj = new Clearances();
+		
+		String[] data = dataLine.split(",");
+		
+		tempObj.setID(key);
+		tempObj.setTotal(Integer.parseInt(data[152]));
+		tempObj.setHeaded(Integer.parseInt(data[153]));
+		tempObj.setOther(Integer.parseInt(data[154]));
+		tempObj.setOffLine(Integer.parseInt(data[155]));
+		
+		tempTable.add(tempObj);
+		
+		setClearancesTable(tempTable);
+		
+	}
+
+	public void populateFoulsTable(int key, String dataLine) {
+		ArrayList<Fouls> tempTable = new ArrayList<Fouls>();
+		
+		tempTable = getFoulsTable();
+		
+		Fouls tempObj = new Fouls();
+		
+		String[] data = dataLine.split(",");
+		
+		tempObj.setID(key);
+		tempObj.setConceded(Integer.parseInt(data[159]));
+		tempObj.setCEHP(Integer.parseInt(data[160]));
+		tempObj.setWon(Integer.parseInt(data[161]));
+		tempObj.setWonInDangerArea(Integer.parseInt(data[162]));
+		tempObj.setWonOutDangerArea(Integer.parseInt(data[163]));
+		tempObj.setWonPenalty(Integer.parseInt(data[164]));
+		
+		tempTable.add(tempObj);
+		
+		setFoulsTable(tempTable);
 		
 	}
 

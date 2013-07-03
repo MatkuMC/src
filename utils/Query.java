@@ -594,6 +594,154 @@ public class Query {
 		
 		return InsertSQL;
 	}
+	
+	public String getOpenPlayCrossesTableInsertSQL(ArrayList<OpenPlayCrosses> OpenPlayCrossesTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`OpenPlayCrosses` (" + getColumnNames(OpenPlayCrossesTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (OpenPlayCrosses cc : OpenPlayCrossesTable){
+			Values = Values + "(" + "'" + cc.getID() + "','" + cc.getSuccessful()+ "','" + cc.getUnsuccessful() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+	
+	public String getGoalAssistsTableInsertSQL(ArrayList<GoalAssists> GoalAssistsTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`GoalAssists` (" + getColumnNames(GoalAssistsTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (GoalAssists aot : GoalAssistsTable){
+			Values = Values + "(" + "'" + aot.getID() + "','" + aot.getCorner() + "','" + aot.getFreeKick()
+					+ "','" + aot.getThrowIn()+ "','" + aot.getGoalKick() + "','" + aot.getSetPiece() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+	
+	public String getKeyTableInsertSQL(ArrayList<Key> KeyTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`Key` (" + getColumnNames(KeyTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (Key aot : KeyTable){
+			Values = Values + "(" + "'" + aot.getID() + "','" + aot.getCorner() + "','" + aot.getFreeKick()
+					+ "','" + aot.getThrowIn()+ "','" + aot.getGoalKick() + "','" + aot.getSetPiece() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+	
+	public String getDuelsTableInsertSQL(ArrayList<Duels> DuelsTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`Duels` (" + getColumnNames(DuelsTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (Duels cc : DuelsTable){
+			Values = Values + "(" + "'" + cc.getID() + "','" + cc.getWon()+ "','" + cc.getLost() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+	
+	public String getAerialDuelsTableInsertSQL(ArrayList<AerialDuels> AerialDuelsTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`AerialDuels` (" + getColumnNames(AerialDuelsTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (AerialDuels cc : AerialDuelsTable){
+			Values = Values + "(" + "'" + cc.getID() + "','" + cc.getWon()+ "','" + cc.getLost() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+	
+	public String getGroundDuelsTableInsertSQL(ArrayList<GroundDuels> GroundDuelsTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`GroundDuels` (" + getColumnNames(GroundDuelsTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (GroundDuels cc : GroundDuelsTable){
+			Values = Values + "(" + "'" + cc.getID() + "','" + cc.getWon() + "','" + cc.getLost() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+	
+	public String getTacklesTableInsertSQL(ArrayList<Tackles> TacklesTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`Tackles` (" + getColumnNames(TacklesTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (Tackles cc : TacklesTable){
+			Values = Values + "(" + "'" + cc.getID() + "','" + cc.getWon() + "','" + cc.getLost() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+	
+	public String getClearancesTableInsertSQL(ArrayList<Clearances> ClearancesTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`Clearances` (" + getColumnNames(ClearancesTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (Clearances cc : ClearancesTable){
+			Values = Values + "(" + "'" + cc.getID() + "','" + cc.getTotal() + "','" + cc.getHeaded() + "','" + cc.getOther()
+					+ "','" + cc.getOffLine() + "')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
+	
+	public String getFoulsTableInsertSQL(ArrayList<Fouls> FoulsTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`Fouls` (" + getColumnNames(FoulsTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (Fouls cc : FoulsTable){
+			Values = Values + "(" + "'" + cc.getID() + "','" + cc.getConceded() + "','" + cc.getCEHP() + "','" + cc.getWon()
+					+ "','" + cc.getWonInDangerArea() + "','" + cc.getWonOutDangerArea() + "','" + cc.getWonPenalty() +"')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
 
 
 }
