@@ -17,8 +17,10 @@ public class FileReader {
 	private ArrayList<Players> PlayersTable = new ArrayList<Players>();
 	private ArrayList<Matches> MatchesTable = new ArrayList<Matches>();
 	private ArrayList<PlayerMatches> PlayerMatchesTable = new ArrayList<PlayerMatches>();
+	private ArrayList<Positions> PositionsTable = new ArrayList<Positions>();
 	
 	//Data Tables
+	private ArrayList<MatchInfo> MatchInfoTable = new ArrayList<MatchInfo>();
 	private ArrayList<Penalties> PenaltiesTable = new ArrayList<Penalties>();
 	private ArrayList<DirectFreeKicks> DFKicksTable = new ArrayList<DirectFreeKicks>();
 	private ArrayList<InsideBox> InsideBoxTable = new ArrayList<InsideBox>();
@@ -58,6 +60,7 @@ public class FileReader {
 	private ArrayList<Clearances> ClearancesTable = new ArrayList<Clearances>();
 	private ArrayList<Fouls> FoulsTable = new ArrayList<Fouls>();
 	
+	
 	public ArrayList<String> getHeaders() {
 		return Headers;
 	}
@@ -96,6 +99,22 @@ public class FileReader {
 
 	public void setPlayerMatchesTable(ArrayList<PlayerMatches> playerMatchesTable) {
 		PlayerMatchesTable = playerMatchesTable;
+	}
+
+	public ArrayList<Positions> getPositionsTable() {
+		return PositionsTable;
+	}
+
+	public void setPositionsTable(ArrayList<Positions> positionsTable) {
+		PositionsTable = positionsTable;
+	}
+
+	public ArrayList<MatchInfo> getMatchInfoTable() {
+		return MatchInfoTable;
+	}
+
+	public void setMatchInfoTable(ArrayList<MatchInfo> matchInfoTable) {
+		MatchInfoTable = matchInfoTable;
 	}
 
 	public ArrayList<Penalties> getPenaltiesTable() {
@@ -452,12 +471,21 @@ public class FileReader {
 			
 			in.close();
 			
+			
+			
 			if(rt == ReadType.Team) setTeamsTable(dataObj.getTeamsTable());
 			if(rt == ReadType.Player) setPlayersTable(dataObj.getPlayersTable());
 			if(rt == ReadType.Matches) {
 				setMatchesTable(dataObj.getMatchesTable());
 				setPlayerMatchesTable(dataObj.getPlayerMatchesTable());
+				
+				//Create the positions table...
+				dataObj.createPositionsData();
+				
+				setPositionsTable(dataObj.getPositionsTable());
 			}
+			
+			
 			
 		}catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -483,6 +511,7 @@ public class FileReader {
 			while ((strLine = br.readLine()) != null) {
 				int key = dataObj.getKey(getMatchesTable(), getPlayersTable(), getTeamsTable(), strLine);
 				
+				dataObj.populateMatchInfoTable(key, strLine.trim());
 				dataObj.populatePenaltiesTable(key, strLine.trim());
 				dataObj.populateDFKicksTable(key, strLine.trim());
 				dataObj.populateInsideBoxTable(key, strLine.trim());
@@ -525,6 +554,7 @@ public class FileReader {
 			
 			in.close();
 			
+			setMatchInfoTable(dataObj.getMatchInfoTable());
 			setPenaltiesTable(dataObj.getPenaltiesTable());
 			setDFKicksTable(dataObj.getDFKicksTable());
 			setInsideBoxTable(dataObj.getInsideBoxTable());

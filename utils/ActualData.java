@@ -9,6 +9,7 @@ import DataObjects.*;
 
 public class ActualData extends KeyData{
 	
+	private ArrayList<MatchInfo> MatchInfoTable = new ArrayList<MatchInfo>();
 	private ArrayList<Penalties> PenaltiesTable = new ArrayList<Penalties>();
 	private ArrayList<DirectFreeKicks> DFKicksTable = new ArrayList<DirectFreeKicks>();
 	private ArrayList<InsideBox> InsideBoxTable = new ArrayList<InsideBox>();
@@ -47,6 +48,14 @@ public class ActualData extends KeyData{
 	private ArrayList<Tackles> TacklesTable = new ArrayList<Tackles>();
 	private ArrayList<Clearances> ClearancesTable = new ArrayList<Clearances>();
 	private ArrayList<Fouls> FoulsTable = new ArrayList<Fouls>();
+
+	public ArrayList<MatchInfo> getMatchInfoTable() {
+		return MatchInfoTable;
+	}
+
+	public void setMatchInfoTable(ArrayList<MatchInfo> matchInfoTable) {
+		MatchInfoTable = matchInfoTable;
+	}
 
 	public ArrayList<Penalties> getPenaltiesTable() {
 		return PenaltiesTable;
@@ -396,6 +405,28 @@ public class ActualData extends KeyData{
 			}			
 		}
 		return key;
+	}
+	
+	public void populateMatchInfoTable(int key, String dataLine) {
+		ArrayList<MatchInfo> tempTable = new ArrayList<MatchInfo>();
+		
+		tempTable = getMatchInfoTable();
+		
+		MatchInfo tempObj = new MatchInfo();
+		
+		String[] data = dataLine.split(",");
+		
+		tempObj.setID(key);
+		tempObj.setPositionID(Integer.parseInt(data[9]));
+		tempObj.setTime(Integer.parseInt(data[11]));
+		tempObj.setStarts(Integer.parseInt(data[12]));
+		tempObj.setSubOn(Integer.parseInt(data[13]));
+		tempObj.setSubOff(Integer.parseInt(data[14]));
+		
+		tempTable.add(tempObj);
+		
+		setMatchInfoTable(tempTable);
+		
 	}
 
 	public void populatePenaltiesTable(int key, String dataLine) {

@@ -59,12 +59,23 @@ public class MainSystem {
 			dbObj.RunSQLInsert(queryObj.getPlayerMatchesInsertSQL(fileObj.getPlayerMatchesTable()));
 			
 			System.out.println("Completed Insert of PlayerMatches Table...");
+			
+			//Insert Positions
+			dbObj.RunSQLInsert(queryObj.getPositionsInsertSQL(fileObj.getPositionsTable()));
+			
+			System.out.println("Completed Insert of Positions Table...");
 		}
 		
 		// Read in Data Tables...
 		fileObj.readDataTables(DataFileLocation);
 		
 		if(run){
+
+			//Insert Match Info Table
+			dbObj.RunSQLInsert(queryObj.getMatchInfoTableInsertSQL(fileObj.getMatchInfoTable()));
+			
+			System.out.println("Completed Insert of Match Info Table...");
+			
 			//Insert Penalties Table
 			dbObj.RunSQLInsert(queryObj.getPenaltiesInsertSQL(fileObj.getPenaltiesTable()));
 		
@@ -211,49 +222,42 @@ public class MainSystem {
 			System.out.println("Completed Insert of Crosses Air Table...");
 			
 			//Insert Open Play Crosses Table
+			dbObj.RunSQLInsert(queryObj.getOpenPlayCrossesTableInsertSQL(fileObj.getOpenPlayCrossesTable()));
+			
+			System.out.println("Completed Insert of Open Play Crosses Table...");
 			
 			//Insert Goal Assists Table
+			dbObj.RunSQLInsert(queryObj.getGoalAssistsTableInsertSQL(fileObj.getGoalAssistsTable()));
+			
+			System.out.println("Completed Insert of Goal Assists Table...");
 			
 			//Insert Key Table Table
+			dbObj.RunSQLInsert(queryObj.getKeyTableInsertSQL(fileObj.getKeyTable()));
+			
+			System.out.println("Completed Insert of Key Table...");
 			
 			//Insert Duels Table
+			dbObj.RunSQLInsert(queryObj.getDuelsTableInsertSQL(fileObj.getDuelsTable()));
+			
+			System.out.println("Completed Insert of Duels Table...");
 			
 			//Insert Aerial Duels Table
+			dbObj.RunSQLInsert(queryObj.getAerialDuelsTableInsertSQL(fileObj.getAerialDuelsTable()));
+			
+			System.out.println("Completed Insert of Aerial Duels Table...");
 			
 			//Insert Ground Duels Table
+			dbObj.RunSQLInsert(queryObj.getGroundDuelsTableInsertSQL(fileObj.getGroundDuelsTable()));
+			
+			System.out.println("Completed Insert of Ground Duels Table...");
 			
 			//Insert Tackles Table
+			dbObj.RunSQLInsert(queryObj.getTacklesTableInsertSQL(fileObj.getTacklesTable()));
+			
+			System.out.println("Completed Insert of Tackles Table...");
 			
 			//Insert Clearances Table*
 		}
-		
-		dbObj.RunSQLInsert(queryObj.getOpenPlayCrossesTableInsertSQL(fileObj.getOpenPlayCrossesTable()));
-		
-		System.out.println("Completed Insert of Open Play Crosses Table...");
-		
-		dbObj.RunSQLInsert(queryObj.getGoalAssistsTableInsertSQL(fileObj.getGoalAssistsTable()));
-		
-		System.out.println("Completed Insert of Goal Assists Table...");
-		
-		dbObj.RunSQLInsert(queryObj.getKeyTableInsertSQL(fileObj.getKeyTable()));
-		
-		System.out.println("Completed Insert of Key Table...");
-		
-		dbObj.RunSQLInsert(queryObj.getDuelsTableInsertSQL(fileObj.getDuelsTable()));
-		
-		System.out.println("Completed Insert of Duels Table...");
-		
-		dbObj.RunSQLInsert(queryObj.getAerialDuelsTableInsertSQL(fileObj.getAerialDuelsTable()));
-		
-		System.out.println("Completed Insert of Aerial Duels Table...");
-		
-		dbObj.RunSQLInsert(queryObj.getGroundDuelsTableInsertSQL(fileObj.getGroundDuelsTable()));
-		
-		System.out.println("Completed Insert of Ground Duels Table...");
-		
-		dbObj.RunSQLInsert(queryObj.getTacklesTableInsertSQL(fileObj.getTacklesTable()));
-		
-		System.out.println("Completed Insert of Tackles Table...");
 		
 		/*String sqlInsert = "";
 		

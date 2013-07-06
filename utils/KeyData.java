@@ -10,6 +10,7 @@ public class KeyData {
 	private ArrayList<Players> PlayersTable = new ArrayList<Players>();
 	private ArrayList<Matches> MatchesTable = new ArrayList<Matches>();
 	private ArrayList<PlayerMatches> PlayerMatchesTable = new ArrayList<PlayerMatches>();
+	private ArrayList<Positions> PositionsTable = new ArrayList<Positions>();
 	
 	private int counterTeamID;
 	private int counterPlayerID;
@@ -78,6 +79,14 @@ public class KeyData {
 
 	public void setPlayerMatchesTable(ArrayList<PlayerMatches> playerMatchesTable) {
 		PlayerMatchesTable = playerMatchesTable;
+	}
+
+	public ArrayList<Positions> getPositionsTable() {
+		return PositionsTable;
+	}
+
+	public void setPositionsTable(ArrayList<Positions> positionsTable) {
+		PositionsTable = positionsTable;
 	}
 
 	public enum CounterType {
@@ -269,6 +278,35 @@ public class KeyData {
 		setMatchesTable(tempMatchesTable);
 		setPlayerMatchesTable(tempPMtable);
 		
+	}
+	
+	public void createPositionsData() {
+		
+		ArrayList<Positions> tempPositionsTable = new ArrayList<Positions>();
+		
+		Positions p1 = new Positions();
+		Positions p2 = new Positions();
+		Positions p3 = new Positions();
+		Positions p4 = new Positions();
+		
+		p1.setPositionID(1);
+		p1.setPosition("GK");
+		
+		p2.setPositionID(2);
+		p2.setPosition("Defender");
+		
+		p3.setPositionID(3);
+		p3.setPosition("Midfielder");
+		
+		p4.setPositionID(4);
+		p4.setPosition("Attacker");
+		
+		tempPositionsTable.add(p1);
+		tempPositionsTable.add(p2);
+		tempPositionsTable.add(p3);
+		tempPositionsTable.add(p4);
+		
+		setPositionsTable(tempPositionsTable);
 	}
 
 }

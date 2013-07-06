@@ -107,6 +107,41 @@ public class Query {
 		return InsertSQL;
 		
 	}
+	
+	public String getPositionsInsertSQL(ArrayList<Positions> PositionsTable){
+		
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`Positions` (" + getColumnNames(PositionsTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (Positions pos : PositionsTable){
+			Values = Values + "(" + "'" + pos.getPositionID() + "'," + "'" + pos.getPosition() + "')" + ",";
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+		
+	}
+	
+	public String getMatchInfoTableInsertSQL(ArrayList<MatchInfo> MatchInfoTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`MatchInfo` (" + getColumnNames(MatchInfoTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (MatchInfo cc : MatchInfoTable){
+			Values = Values + "(" + "'" + cc.getID() + "','" + cc.getPositionID() + "','" + cc.getTime() + "','" + cc.getStarts()
+					+ "','" + cc.getSubOn() + "','" + cc.getSubOff() +"')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
 
 	public String getPenaltiesInsertSQL(ArrayList<Penalties> PenaltiesTable) {
 		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`Penalties` (" + getColumnNames(PenaltiesTable.get(0).TableHeaders) + ")";
