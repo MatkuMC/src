@@ -59,6 +59,7 @@ public class FileReader {
 	private ArrayList<Tackles> TacklesTable = new ArrayList<Tackles>();
 	private ArrayList<Clearances> ClearancesTable = new ArrayList<Clearances>();
 	private ArrayList<Fouls> FoulsTable = new ArrayList<Fouls>();
+	private ArrayList<GoalsConceded> GoalsConcededTable = new ArrayList<GoalsConceded>();
 	
 	
 	public ArrayList<String> getHeaders() {
@@ -423,6 +424,14 @@ public class FileReader {
 		FoulsTable = foulsTable;
 	}
 
+	public ArrayList<GoalsConceded> getGoalsConcededTable() {
+		return GoalsConcededTable;
+	}
+
+	public void setGoalsConcededTable(ArrayList<GoalsConceded> goalsConcededTable) {
+		GoalsConcededTable = goalsConcededTable;
+	}
+
 	public enum ReadType {
 		Team, Player, Matches;
 	}
@@ -550,6 +559,7 @@ public class FileReader {
 				dataObj.populateTacklesTable(key, strLine.trim());
 				dataObj.popuateClearancesTable(key, strLine.trim());
 				dataObj.populateFoulsTable(key, strLine.trim());
+				dataObj.populateGoalsConcededTable(key, strLine.trim());
 			}
 			
 			in.close();
@@ -593,6 +603,7 @@ public class FileReader {
 			setTacklesTable(dataObj.getTacklesTable());
 			setClearancesTable(dataObj.getClearancesTable());
 			setFoulsTable(dataObj.getFoulsTable());
+			setGoalsConcededTable(dataObj.getGoalsConcededTable());
 			
 		}catch (Exception e) {
 			// TODO Auto-generated catch block

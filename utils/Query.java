@@ -777,6 +777,22 @@ public class Query {
 		
 		return InsertSQL;
 	}
+	
+	public String getGoalsConcededTableInsertSQL(ArrayList<GoalsConceded> GoalsConcededTable) {
+		String InsertSQL = "INSERT INTO " + "`" + getDbname() + "`.`GoalsConceded` (" + getColumnNames(GoalsConcededTable.get(0).TableHeaders) + ")";
+		
+		String Values  = " VALUES ";
+		
+		for (GoalsConceded cc : GoalsConcededTable){
+			Values = Values + "(" + "'" + cc.getID() + "','" + cc.getTotal() + "','" + cc.getInsideBox() + "','" + cc.getOutsideBox() +"')" + ",";	
+		}
+		
+		Values = Values.substring(0, Values.length() - 1);
+		
+		InsertSQL = InsertSQL + Values + ";";
+		
+		return InsertSQL;
+	}
 
 
 }

@@ -48,6 +48,7 @@ public class ActualData extends KeyData{
 	private ArrayList<Tackles> TacklesTable = new ArrayList<Tackles>();
 	private ArrayList<Clearances> ClearancesTable = new ArrayList<Clearances>();
 	private ArrayList<Fouls> FoulsTable = new ArrayList<Fouls>();
+	private ArrayList<GoalsConceded> GoalsConcededTable = new ArrayList<GoalsConceded>();
 
 	public ArrayList<MatchInfo> getMatchInfoTable() {
 		return MatchInfoTable;
@@ -362,6 +363,14 @@ public class ActualData extends KeyData{
 
 	public void setClearancesTable(ArrayList<Clearances> clearancesTable) {
 		ClearancesTable = clearancesTable;
+	}
+
+	public ArrayList<GoalsConceded> getGoalsConcededTable() {
+		return GoalsConcededTable;
+	}
+
+	public void setGoalsConcededTable(ArrayList<GoalsConceded> goalsConcededTable) {
+		GoalsConcededTable = goalsConcededTable;
 	}
 
 	public int getKey(ArrayList<Matches> matchesTable,ArrayList<Players> playersTable, ArrayList<Teams> teamsTable, String dataLine) 
@@ -1209,6 +1218,26 @@ public class ActualData extends KeyData{
 		tempTable.add(tempObj);
 		
 		setFoulsTable(tempTable);
+		
+	}
+
+	public void populateGoalsConcededTable(int key, String dataLine) {
+		ArrayList<GoalsConceded> tempTable = new ArrayList<GoalsConceded>();
+		
+		tempTable = getGoalsConcededTable();
+		
+		GoalsConceded tempObj = new GoalsConceded();
+		
+		String[] data = dataLine.split(",");
+		
+		tempObj.setID(key);
+		tempObj.setTotal(Integer.parseInt(data[170]));
+		tempObj.setInsideBox(Integer.parseInt(data[171]));
+		tempObj.setOutsideBox(Integer.parseInt(data[172]));
+		
+		tempTable.add(tempObj);
+		
+		setGoalsConcededTable(tempTable);
 		
 	}
 

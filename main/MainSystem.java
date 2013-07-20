@@ -257,11 +257,19 @@ public class MainSystem {
 			System.out.println("Completed Insert of Tackles Table...");
 			
 			//Insert Clearances Table*
+			
+			//Insert Fouls Table*
+			
+			//Insert Goals Conceded Table
 		}
+		
+		dbObj.RunSQLInsert(queryObj.getGoalsConcededTableInsertSQL(fileObj.getGoalsConcededTable()));
+		
+		System.out.println("Completed Insert of Goals Conceded Table...");
 		
 		/*String sqlInsert = "";
 		
-		sqlInsert = queryObj.getThrowInInsertSQL(fileObj.getThrowInTable());
+		sqlInsert = queryObj.getThrowInInsertSQL(fileObj.getThrowInTable( ));
 		
 		System.out.println(sqlInsert);*/
 		
