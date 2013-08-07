@@ -1,5 +1,5 @@
 package DataObjects;
 
-public class AttemptsOffTarget extends AttemptsOnTarget {
+public class AttemptsOffTarget extends Goals {
 
 }
