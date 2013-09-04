@@ -13,7 +13,6 @@ public class MainSystem {
 	 * @param args
 	 */
 	public static final String DataFileLocation = "/Users/kritarthsaurabh/Documents/MScProject/OptaData.csv";
-	public static final String HeaderFileLocation = "/Users/kritarthsaurabh/Documents/MScProject/Headers.txt";
 	public static final String dbName = "testdb";
 	public static final String userName = "root";
 	public static final String password = "root";
@@ -23,8 +22,6 @@ public class MainSystem {
 		FileReader fileObj = new FileReader();
 		
 		boolean run = false;
-		
-		//fileObj.readHeaderFile(HeaderFileLocation);
 		
 		//Read in Key Tables
 		fileObj.readDataFile(DataFileLocation, ReadType.Team);
@@ -261,25 +258,11 @@ public class MainSystem {
 			//Insert Fouls Table*
 			
 			//Insert Goals Conceded Table
+			dbObj.RunSQLInsert(queryObj.getGoalsConcededTableInsertSQL(fileObj.getGoalsConcededTable()));
+			
+			System.out.println("Completed Insert of Goals Conceded Table...");
 		}
 		
-		dbObj.RunSQLInsert(queryObj.getGoalsConcededTableInsertSQL(fileObj.getGoalsConcededTable()));
-		
-		System.out.println("Completed Insert of Goals Conceded Table...");
-		
-		/*String sqlInsert = "";
-		
-		sqlInsert = queryObj.getThrowInInsertSQL(fileObj.getThrowInTable( ));
-		
-		System.out.println(sqlInsert);*/
-		
-		/*dbObj.RunSQLSelectQuery("Select * from Teams");	
-		
-		String rs = dbObj.executeSQLStoredProcedure("{call prcGetKey(?, ?)}", 10006, 1001, 1);
-		
-		System.out.println(rs);*/
-		
-
 	}
 	
 }

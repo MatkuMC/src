@@ -612,7 +612,4 @@ public class FileReader {
 		
 		
 	}
-
-
-
 }

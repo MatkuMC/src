@@ -69,12 +69,16 @@ public class DBConnector {
 	    ResultSet rs = null;
 	   
 	      try {
+	    	  // Establish a connection with the Database
 	    	  con = DriverManager.getConnection(getConnectionString());
 	          st = con.createStatement();
 
 	          String sql = Query;
+	          
+	          //Run the Query
 	          rs = st.executeQuery(sql);
 	          
+	          //Get the Results
 	          while (rs.next()) {
 	              System.out.print(rs.getInt(1));
 	              System.out.println("\t"+rs.getString(2) + "\t"+rs.getString(3));
@@ -96,10 +100,13 @@ public class DBConnector {
 	     Integer rs = 0; 
 	      
 	      try {
+	    	  //Establish a connection with the Database
 	    	  con = DriverManager.getConnection(getConnectionString());
 	          st = con.createStatement();
 
 	          String sql = Query;
+	          
+	          //Run the Query
 	          rs = st.executeUpdate(sql);
 	          
 	          if(rs == 1)
@@ -121,22 +128,27 @@ public class DBConnector {
 	    String result = "";
 	    
 	      try {
+	    	  //Establish a connection with the Database
 	    	  con = DriverManager.getConnection(getConnectionString());
+	    	  //Prepare the stored procedure cal
 	          st = con.prepareCall(spName);
-
+              //Set the parameters for the stored procedure
 	          st.setInt(1, p1);
 	          st.setInt(2, p2);
 	          
 	          boolean hadResults = st.execute();
 	          
+	          // Keep on retrieving results while we still have them...
 	          while (hadResults) {
 	              rs = st.getResultSet();
 	              
+	              //Retrieve the result at the specified index.
 	              while(rs.next())
 	              {
 	            	  result = rs.getString(resultColumnIndex);
 	              }
 
+	              //Retrieve next set of results.
 	              hadResults = st.getMoreResults();
 	          }
 	          
